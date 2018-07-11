@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Description{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ request.title }}</h1>
+        </div>
+      </header>
+      <p class="body">{{ request.description }}</p>
+    </article>
+{% endblock %}
+

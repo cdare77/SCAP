@@ -1,0 +1,322 @@
+html {
+    font-family: sans-serif;
+     background: #eee;
+     padding: 1rem;
+}
+
+.header {
+    background: #f1f1f1;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.header > h2 {
+    color: #333;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300%;
+    font-size: 200%;
+    font-variant: small-caps;
+}
+
+.header > p {
+    color: #555;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300%; 
+    font-variant: small-caps;
+}
+
+body { 
+    max-width: 960px; 
+    margin: 0 auto; 
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    -moz-box-shadow:    3px 3px 5px 6px #333;
+    -webkit-box-shadow: 3px 3px 5px 6px #333;
+    box-shadow:         3px 3px 5px 2px #333; 
+}
+
+h1 { 
+    font-family: serif; 
+    color: #377ba8; 
+    margin: 1rem 0; 
+}
+
+a { 
+    color: #377ba8; 
+}
+
+hr { 
+    border: none; 
+    border-top: 1px solid lightgray; 
+}
+
+nav { 
+    background: lightgray; 
+    display: flex; 
+    align-items: center; 
+    padding: 0 0.5rem; 
+}
+
+nav h1 { 
+    flex: auto; 
+    margin: 0; 
+}
+
+nav h1 a { 
+    text-decoration: none; 
+    padding: 0.25rem 0.5rem; 
+}
+
+nav ul  { 
+    display: flex; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+}
+
+nav ul li a, nav ul li span, header .action { 
+    display: block; 
+    padding: 0.5rem; 
+}
+
+.content { 
+    padding: 0 1rem 1rem; 
+}
+
+.content > header { 
+    border-bottom: 1px solid lightgray; 
+    display: flex; 
+    align-items: flex-end; 
+    text-align: center;
+}
+
+.content > header h1 { 
+    flex: auto; 
+    margin: 1rem 0 0.25rem 0; 
+}
+
+.flash { 
+    margin: 1em 0; 
+    padding: 1em; 
+    background: #cae6f6; 
+    border: 1px solid #377ba8; 
+}
+
+.post > header { 
+    display: flex; 
+    align-items: flex-end; 
+    font-size: 0.85em; 
+}
+
+.post > header > div:first-of-type { 
+    flex: auto; 
+}
+
+.post > header h1 { 
+    font-size: 1.5em; 
+    margin-bottom: 0; 
+}
+
+.post .about { 
+    color: slategray; 
+    font-style: italic; 
+}
+
+.post .body { 
+    white-space: pre-line; 
+}
+
+.content:last-child { 
+    margin-bottom: 0; 
+}
+
+.content form {
+    margin: 1em 0; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+textarea,
+select
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 1%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+
+input[type="file"] {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 3%;
+    background: #3983f9;
+    border-bottom: 2px solid #2272f4;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: #3983f9;
+    display: inline-block;
+    padding: 0.6%;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #1c65db;
+}
+
+.inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+#fileLabel {
+    width: 20%;
+
+}
+
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="datetime"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="time"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus
+{
+    box-shadow: 0 0 5px #3983f9;
+    padding: 2%;
+    border: 1px solid #3983f9;
+}
+
+input[type="submit"],
+input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    
+    width: 100%;
+    padding: 1.8%;
+    background: #3983f9;
+    border-bottom: 2px solid #2272f4;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;    
+    color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    
+    -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+    box-shadow: 0px 0px 0px #333;
+
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background: #1c65db;
+    -moz-box-shadow:    0px 3px 5px 6px #333;
+    -webkit-box-shadow: 0px 3px 5px 6px #333;
+    box-shadow:         0px 3px 5px 2px #333;
+    
+      -webkit-transform: rotateX(30deg) !important;
+     -moz-transform: rotateX(20deg) !important;
+      -ms-transform: rotateX(20deg) !important;
+          transform: rotateX(20deg) !important;
+    
+}
+
+.content label { 
+    font-weight: bold; 
+    margin-bottom: 0.5em; 
+}
+
+.content input, .content textarea { 
+    margin-bottom: 1em; 
+}
+
+.content textarea { 
+    min-height: 12em; 
+    resize: vertical; 
+}
+
+input.danger { 
+    color: #cc2f2e; 
+}
+
+input[type=submit] { 
+    align-self: start; 
+    min-width: 10em; 
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 936px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@media screen and (max-width: 936px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -468px;   /* 50% */
+  }
+}
+

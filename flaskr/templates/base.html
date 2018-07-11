@@ -1,0 +1,41 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{%block scripts %}
+    <script src="{{ url_for('static', filename='jquery-3.3.1.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='inputfile.js') }}"></script>
+{% endblock %}
+
+{% block html_attribs %} lang="en"{% endblock %}
+
+
+{% block body %}
+
+  <img src="{{ url_for('static', filename='netapp.jpg') }}" class="bg"/>
+  <div class="header">
+    <h2>SCAP for ONTAP</h2>
+    <p>v1.0</p>
+  </div>
+  <section class="content">
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+    {% if g.IPAddr %}
+        <nav>
+            <h1>{{ g.IPAddr }}</h1>
+            <ul>
+                <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+            </ul>
+        </nav>
+    {% endif %}
+  </section>
+
+{% endblock %}

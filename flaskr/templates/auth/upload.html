@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Upload{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form enctype="multipart/form-data"  method="post">
+  <h4> Please upload an OVAL file </h4>
+  <input type="file" name="file" id="file" class="inputfile" />
+  <label id="fileLabel" for="file">Choose a file</label>
+  <input type="submit" value="Send">
+</form>
+<script src="{{ url_for('static', filename='jquery-3.3.1.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='inputfile.js') }}"></script>
+{% endblock %}
