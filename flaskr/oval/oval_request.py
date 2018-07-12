@@ -12,32 +12,45 @@ class OVALRequestError(Exception):
     """ Custom exception for this module """
     pass
 
+
+
 class OVALRequest:
     """
-    This class takes the input from the OVAL Parser and extracts important
-    information. 
+    This class essentially cleans the output from the OVAL Parser, determines
+    which tests should be executed, and sends a ticket to the oval driver
     """
 
     def __init__(self, parser):
         """ Constructor for OVAL request """
 
+        self.initialized = False
         self.dictionary = parser.get_dictionary()
         if not self.dictionary:
             current_app.logger.error(time.ctime() + '\tFailed to create OVAL Request: empty dictionary')
             raise OVALDriveError('Cannot create an OVAL Request from an empty dictionary')
 
+        
+    def initialize(self):
+        """ The __init__ function should not call these additional
+            methods for debugging purposes. We want to allow an
+            OVAL parser to be initialized before setting attributes
+            that could potentially throw errors """
+        
         self.title = self.get_body_content('title')
         self.description = self.get_body_content('description')
-        
+        self.tests = self.determine_tests()
+        self.initialized = True
         
 
     def get_all_elems(self, substring):
+        """ Helper function to find all XML tag elements
+            whose key contains a given substring """
         return [value for key, value in self.dictionary.items() if substring in key.lower()]
 
     def get_body_content(self, substring):
-        """ helper function to find all dictionary elements
-            whose key contains a given substring. Only the
-            first is returned, however. """
+        """ helper function to find the first XML tag whose
+            name contains the given substring """
+        
         array = self.get_all_elems(substring)
         
         if array:
@@ -46,6 +59,12 @@ class OVALRequest:
             return primary
 
     def get_all_files(self):
+        """ Attempts to search the OVAL file for a filepath
+            object, or a path object paired with a filename object.
+            If there are multiple filepaths, all are returned. Whenever
+            there is a path together with a filename, we assume filename
+            is a Regular Expression (RegEx)
+        """
     
         files = self.get_all_elems('filepath') # list to return
         paths = self.get_all_elems('path')
@@ -68,7 +87,9 @@ class OVALRequest:
         
         print(files)
         
-        # O(N^4) is good enough LOL
+        ####################################
+        #   NEEDS IMPROVEMENT - O(N^4)     #
+        ####################################
         for filename in filenames:
             for path in paths:
                 if filename.parent == path.parent:
@@ -80,52 +101,33 @@ class OVALRequest:
 
         return files
 
-
-
-    def search_for_pattern(self):
-        """ Given a regex pattern provided in the OVAL
-            file, we attempt to use that pattern for matching
-            in a destination file """
-        pattern = self.get_body_content('pattern')
-        
-        # Do not continue if no pattern is provided
-        if not pattern:
-            return
-        
-        # Get path of destination file to search
-        full_path = self.get_all_paths()
-        # clean the path
-        if type(full_path) is list:
-            full_path = full_path[0]
-         
-        my_file = open(full_path, 'r').read()
-        
-        # Check if pattern is a multiline regex
-        flags = None
-        if pattern[0] is '^' and pattern[-1] is '$':
-            flags = re.MULTILINE
-
-        try:
-            result = re.match(pattern, my_file, flags)
-            return result
-        except:
-            # pcre (php) regex will fail in python
-            raise OVALDriveError("Regex pattern not compatible with Python RegEx 101. Remember not to use inline flags.")
-
-
+    def determine_tests(self):
     
-#if len(sys.argv) < 2:
-#    print("\n\tUsage: python oval_parser.py [file]\n")
-#    sys.exit()
-#
-#filename = sys.argv[1]
-#
-#parser = OVALParser(filename, False)
-#print(parser)
-#
-#driver = OVALRequest(parser)
-#files = driver.get_all_files()
-#
-#print("get_all_files:", driver.get_all_files())
-#print("search_for_pattern:", driver.search_for_pattern())
-#print("grab_file_permissions:", driver.check_file_permissions(files[0]))
+        # list of files we will return
+        tests = []
+
+        file_state = self.get_body_content('file_state')
+        textfilecontent = self.get_body_content('textfilecontent')
+        
+        if 'id' in file_state.properties and 'file_permissions' in file_state.properties['id']:
+            tests.append('check_file_permissions')
+        if textfilecontent:
+            tests.append('search_for_pattern')
+
+        return tests
+    
+if len(sys.argv) < 2:
+    print("\n\tUsage: python oval_parser.py [file]\n")
+    sys.exit()
+
+filename = sys.argv[1]
+
+parser = OVALParser(filename, False)
+print(parser)
+
+driver = OVALRequest(parser)
+files = driver.get_all_files()
+
+print("get_all_files:", driver.get_all_files())
+print("search_for_pattern:", driver.search_for_pattern())
+print("grab_file_permissions:", driver.check_file_permissions(files[0]))

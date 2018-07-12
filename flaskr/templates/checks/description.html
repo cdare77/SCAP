@@ -5,13 +5,20 @@
 {% endblock %}
 
 {% block content %}
-    <article class="post">
-      <header>
-        <div>
-          <h1>{{ request.title }}</h1>
-        </div>
-      </header>
-      <p class="body">{{ request.description }}</p>
-    </article>
+    {% for request in requests %}
+      <article class="post">
+        <header>
+          <div>
+            <h1>{{ request.title }}</h1>
+          </div>
+        </header>
+        <p class="body">{{ request.description }}</p>
+      </article>
+
+      {% if not loop.last %}
+        <hr>
+      {% endif %}
+
+    {% endfor %}
 {% endblock %}
 

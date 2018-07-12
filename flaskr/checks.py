@@ -20,6 +20,8 @@ def description():
     filenames = g.filenames
     requests = []
 
+    print(filenames)
+
     for filename in filenames:
     
         parser = oval.OVALParser(filename, False)

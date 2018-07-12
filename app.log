@@ -31,3 +31,10 @@ Thu Jul 12 11:15:49 2018	172.20.10.3 attempted to upload oval_driver.py
 Thu Jul 12 11:25:03 2018	172.20.10.3 successfully connected to ipaddr
 Thu Jul 12 11:27:45 2018	172.20.10.3 successfully uploaded file_permissions_sshd_private_key.xml
 Thu Jul 12 11:27:45 2018	172.20.10.3 attempted to upload oval_driver.py
+Thu Jul 12 11:30:07 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 11:30:12 2018	172.20.10.3 successfully uploaded file_permissions_sshd_private_key.xml
+Thu Jul 12 11:30:12 2018	172.20.10.3 successfully uploaded sshd_disable_compression.xml
+Thu Jul 12 11:33:34 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 11:33:39 2018	172.20.10.3 successfully uploaded file_permissions_sshd_private_key.xml
+Thu Jul 12 11:33:39 2018	172.20.10.3 successfully uploaded sshd_disable_compression.xml
+Thu Jul 12 11:37:56 2018	172.20.10.3 successfully connected to chris

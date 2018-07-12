@@ -55,9 +55,9 @@ class XMLElement:
 
 class OVALParseError(Exception):
     """ Custom exception for this module """
-
     pass
     
+
 
 class OVALParser:
     """
@@ -68,20 +68,14 @@ class OVALParser:
     be the root of our XML document.
     """
 
-
-    def __init__(self, filename, verbose=False):
+    def __init__(self, verbose=False):
         """ Constructor for OVAL parser """
-
-        if not self.is_xml_file(filename):
-            current_app.logger.error(time.ctime() + '\tIncorrect file extension fed to OVAL Parser')
-            raise OVALParseError("File extension incorrect - must be .xml")
+        
+        if __name__ != "__main__":
+            current_app.logger.info(time.ctime() + " OVAL Parser initialized")
         
         self.verbose = verbose
         self.elements_list = []
-        
-        xml_file = open(filename, 'r')
-        self.parse_xml_file(xml_file)
-        xml_file.close()
 
     
     def __repr__(self):
@@ -89,18 +83,41 @@ class OVALParser:
         the recursive print subtree method from our XMLElement """
 
         if not self.elements_list:
-            return "Parser was not successful"
+            return "No parsed data"
         else:
             return self.elements_list[-1].print_subtree_r(1)
  
 
-    def is_xml_file(self, filename):
+    def parse(self, filename):
+        """ A wrapper function for our more private _parse_xml_file """
+    
+        if not self._is_xml_file(filename):
+            if __name__ != "__main__":
+                current_app.logger.error(time.ctime() + '\tIncorrect file extension fed to OVAL Parser')
+            raise OVALParseError("File extension incorrect - must be .xml")
+        
+        xml_file = open(filename, 'r')
+        self._parse_xml_file(xml_file)
+        xml_file.close()
+
+
+    def get_dictionary(self):
+        """ Helper method which converts our elements list into
+            a dictionary that is indexed by element names """
+        
+        d = {}
+        for elem in self.elements_list:
+            d[elem.element_name] = elem
+
+        return d
+
+    def _is_xml_file(self, filename):
         """ Helper function to check if a given string could be an XML file """
 
         return '.' in filename and \
             filename.rsplit('.', 1)[1].lower() == 'xml'
 
-    def get_tag_properties(self, line):
+    def _get_tag_properties(self, line):
         """ Helper function to grab any properties from an XML tag of the form:
                 property="value"
             using regular expressions
@@ -111,7 +128,8 @@ class OVALParser:
             d[match.group(2)] = match.group(3)
         return d
 
-    def grab_content(self, line):
+
+    def _grab_content(self, line):
         """ Helper function to grab body content in between opening and closing
             XML body tags. For example:
         
@@ -122,26 +140,27 @@ class OVALParser:
         if regex is not None:
             return regex.group(6)
 
-    def find_opening_tag(self, line):
+    def _find_opening_tag(self, line):
         """ Helper function to extract the name of an opening tag using regular
             expressions """
 
+        # regex searching <... key1="value1" etc>
         regex = re.search(r"<([\w:_-]+)([\s]+([a-z_]+)=\"([\w\/\s-]+)\")*[\s]*[/]?>", line, re.MULTILINE)
         if regex is not None:
             return regex.group(1)
 
-    def find_closing_tag(self, line):
+    def _find_closing_tag(self, line):
         """ Helper function to notify if a closing tag has been found and possibly return its name """
         
-        regex = re.search(r"<\/([\w:_-]+)>", line)
+        regex = re.search(r"<\/([\w:_-]+)>", line) # regex searching </...>
         if regex is not None:
             return regex.group(1)
         else:
-            regex = re.search(r"\/>", line)
+            regex = re.search(r"\/>", line) # regex searching />
             if regex is not None:
                 return "closing"
 
-    def parse_xml_file(self, this_file):
+    def _parse_xml_file(self, this_file):
         """ The primary function behind the OVAL parser. The XML file
             is parsed using a stack to mimic recursion accross elements. 
             Whenever an opening tag for an element is found, a new XML element
@@ -154,18 +173,18 @@ class OVALParser:
         tagStack = deque()
     
         for line in this_file:
-            opening = self.find_opening_tag(line)
-            closing = self.find_closing_tag(line)
+            opening = self._find_opening_tag(line)
+            closing = self._find_closing_tag(line)
 
             if opening is not None and closing is not None:
                 # There is no need to mess with the stack since the entire
                 # line is being both opened and closed simultaneously
-                elem = XMLElement(opening, content=self.grab_content(line), properties = self.get_tag_properties(line), parent=tagStack[-1])
+                elem = XMLElement(opening, content=self._grab_content(line), properties = self._get_tag_properties(line), parent=tagStack[-1])
                 try:
                     self.elements_list.append(elem)
                     tagStack[-1].children.append(elem)
                     if self.verbose:
-                        print("OPENING AND CLOSING: ", opening, closing, self.grab_content(line), self.get_tag_properties(line))
+                        print("OPENING AND CLOSING: ", opening, closing, self._grab_content(line), self._get_tag_properties(line))
                 except IndexError:
                     raise OVALParseError("Opening brackets < and closing brackets > must exist on the same line")
 
@@ -186,7 +205,7 @@ class OVALParser:
                 # a new element, we want to push this element onto the stack.
                 # clearl the parent will be the previous (last) element on the
                 # stack
-                elem = XMLElement(opening, properties = self.get_tag_properties(line))
+                elem = XMLElement(opening, properties = self._get_tag_properties(line))
                 try:
                     # try to add this to the previous elements children
                     tagStack[-1].children.append(elem)
@@ -212,22 +231,13 @@ class OVALParser:
 
 
 
-    def get_dictionary(self):
-        """ Helper method which converts our elements list into
-            a dictionary that is indexed by element names """
-        
-        d = {}
-        for elem in self.elements_list:
-            d[elem.element_name] = elem
+if len(sys.argv) < 2:
+    print("\n\tUsage: python oval_parser.py [file]\n")
+    sys.exit()
 
-        return d
+filename = sys.argv[1]
 
-
-#if len(sys.argv) < 2:
-#    print("\n\tUsage: python oval_parser.py [file]\n")
-#    sys.exit()
-#
-#filename = sys.argv[1]
-#
-#parser = OVALParser(filename, True)
-#print(parser)
+parser = OVALParser(True)
+print(parser)
+parser.parse(filename)
+print(parser)
