@@ -12,3 +12,22 @@ Wed Jul 11 16:00:30 2018	172.20.10.3 successfully connected to chris
 Wed Jul 11 16:00:34 2018	172.20.10.3 successfully uploaded file_permissions_sshd_private_key.xml
 Wed Jul 11 16:01:30 2018	172.20.10.3 successfully connected to chris
 Wed Jul 11 16:02:25 2018	172.20.10.3 attempted to upload oval_driver.py
+Wed Jul 11 17:10:39 2018	192.168.100.177 successfully connected to chris
+Wed Jul 11 17:10:51 2018	192.168.100.177 attempted to upload __init__.py
+Wed Jul 11 17:10:56 2018	192.168.100.177 successfully uploaded file_permissions_sshd_private_key.xml
+Thu Jul 12 09:52:41 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 10:21:48 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 10:23:19 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 10:43:31 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 10:46:16 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 10:47:13 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 10:50:11 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 10:50:55 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 10:50:59 2018	172.20.10.3 successfully uploaded file_permissions_sshd_private_key.xml
+Thu Jul 12 10:50:59 2018	172.20.10.3 successfully uploaded sshd_disable_compression.xml
+Thu Jul 12 11:02:42 2018	172.20.10.3 successfully connected to chris
+Thu Jul 12 11:15:49 2018	172.20.10.3 successfully uploaded file_permissions_sshd_private_key.xml
+Thu Jul 12 11:15:49 2018	172.20.10.3 attempted to upload oval_driver.py
+Thu Jul 12 11:25:03 2018	172.20.10.3 successfully connected to ipaddr
+Thu Jul 12 11:27:45 2018	172.20.10.3 successfully uploaded file_permissions_sshd_private_key.xml
+Thu Jul 12 11:27:45 2018	172.20.10.3 attempted to upload oval_driver.py

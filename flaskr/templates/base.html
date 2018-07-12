@@ -30,7 +30,7 @@
     {% block content %}{% endblock %}
     {% if g.IPAddr %}
         <nav>
-            <h1>{{ g.IPAddr }}</h1>
+            <h3>{{ g.IPAddr }}</h3>
             <ul>
                 <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
             </ul>

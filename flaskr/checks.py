@@ -16,20 +16,16 @@ bp = Blueprint('checks', __name__, url_prefix='/checks')
 
 @bp.route('/description', methods=('GET', 'POST'))
 def description():
+
+    filenames = g.filenames
+    requests = []
+
+    for filename in filenames:
     
-    parser = oval.OVALParser(g.filename, False)
-#    dictionary = parser.get_dictionary()
-#
-#    formatted_dict = {}
-#
-#    for key, value in dictionary.items():
-#        my_str = dict_to_str(value.properties)
-#        my_str += "Content  :  {}".format(value.content)
-#        formatted_dict[key] = my_str
+        parser = oval.OVALParser(filename, False)
+        requests.append( oval.OVALRequest(parser) )
 
-    request = oval.OVALRequest(parser)
-
-    return render_template('checks/description.html', request=request)
+    return render_template('checks/description.html', requests=requests)
 
 
 def dict_to_str(dictionary):
@@ -41,12 +37,12 @@ def dict_to_str(dictionary):
 
 @bp.before_app_request
 def load_filename():
-    filename = session.get('filename')
+    filenames = session.get('filenames')
 
-    if filename is None:
-        g.filename = None
+    if filenames is None:
+        g.filenames = None
     else:
-        g.filename = filename
+        g.filenames = filenames
 
 @bp.before_app_request
 def load_ip_addr():

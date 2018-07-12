@@ -27,22 +27,30 @@ def upload():
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
-        file = request.files['file']
+        
+        # get list of files
+        files = request.files.getlist("file")
         # if user does not select file, browser also
         # submit an empty part without filename
-        if file.filename == '':
+        if not files or files[0].filename == '':
             flash('No selected file')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
-            session['filename'] = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+        
+        # create list of valid files
+        session['filenames'] = []
+        my_addr = socket.gethostbyname(socket.getfqdn())
 
-            current_app.logger.info(time.ctime() + '\t{} successfully uploaded {}'.format(socket.gethostbyname(socket.getfqdn()), filename))
+        for file in files:
+            if allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+                session['filenames'].append(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+                current_app.logger.info(time.ctime() + '\t{} successfully uploaded {}'.format(my_addr, filename))
+            else:
+                current_app.logger.info(time.ctime() + '\t{} attempted to upload {}'.format(my_addr, file.filename))
 
+        if session['filenames']:
             return redirect(url_for('checks.description'))
-        elif file:
-            current_app.logger.info(time.ctime() + '\t{} attempted to upload {}'.format(socket.gethostbyname(socket.getfqdn()), file.filename))
 
 
     return render_template('auth/upload.html')
