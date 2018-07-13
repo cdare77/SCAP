@@ -8,10 +8,11 @@ if __name__ == "__main__":
 blocks towards the bottom of the script (which should be fimiliar to any Python developers).
 
 ## 2. How to Use
-In order to run SCAP for ONTAP, Python must be installed on the machine executing it. In addition, `pip` must be installed to support `Flask` and `flask-bootstrap`. To install the two libraries, simply run
+In order to run SCAP for ONTAP, Python must be installed on the machine executing it. In addition, `pip` must be installed to support `Flask`, `flask-bootstrap` and `jsonpickle`. To install the two libraries, simply run
 ```
 pip install Flask
 pip install flask-bootstrap
+pip install jsonpickle
 ```
 if the reader is further interested in how Flask works, refer to the [Flask Website](http://flask.pocoo.org/). A script `SCAP.sh` is provided to set all the environment variables required for Flask. Refer to standard output to find which port the application is running on - it is typically 5000 for development purposes. The IP address is always `localhost`.
 
