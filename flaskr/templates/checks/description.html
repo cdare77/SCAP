@@ -17,10 +17,8 @@
       <hr/>
 
     {% endfor %}
-    <div id="runButton">
-      <a href="{{ url_for('checks.results_overview') }}">
-        <button type="button" class="btn btn-primary">Run</button>
-      </a>
-    </div>
+    <form method="post">
+        <input type="submit" value="Run" style="margin-top: 15px;"/>
+    </form>
 {% endblock %}
 

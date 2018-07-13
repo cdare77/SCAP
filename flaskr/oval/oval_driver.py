@@ -9,8 +9,8 @@ from oval_request import OVALRequest
 from oval_parser import OVALParser, XMLElement
 
 
-
 class OVALDriverError(Exception):
+    """ Custom exception for the OVAL Driver class """
     pass
 
 class OVALDriver:

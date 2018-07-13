@@ -12,6 +12,8 @@ import oval
 
 from flaskr.db import get_db
 
+
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 ALLOWED_EXTENSIONS = set(['xml'])
@@ -54,6 +56,8 @@ def upload():
 
 
     return render_template('auth/upload.html')
+
+
 
 @bp.route('/uploads/<filename>')
 def uploaded_file(filename):

@@ -8,20 +8,30 @@ from flask import (
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 import oval
-
-
-# GLOBAL Array of requests
-requests = []
+import jsonpickle
 
 bp = Blueprint('checks', __name__, url_prefix='/checks')
 
 @bp.route('/description', methods=('GET', 'POST'))
 def description():
 
-    # ensure global requests are clean
-    del requests[:]
+    if request.method == 'POST':
+        # the requests stored on the server side must be decrypted and converted back to
+        # objects
+        session['drivers'] = [jsonpickle.encode(oval.OVALDriver( jsonpickle.decode(ovalrequest) )) for ovalrequest in session['requests']]
+        # we have handled the requests so we no longer need them
+        current_app.logger.info(time.ctime() + " OVAL drivers initialized")
+        
+        session.pop('requests', None)
+        
+        return redirect(url_for('results.results_overview'))
 
+    _requests = []
+
+    # get rid of unnecessary baggage in the session
     filenames = g.filenames
+    g.pop('filenames', None)
+    session.pop('filenames', None)
 
     for filename in filenames:
         # create a parser and request for each file
@@ -32,25 +42,17 @@ def description():
         except OVALParseError:
             current_app.logger.error(time.ctime() + " OVAL Parser could not parse " + filename)
         try:
-            request = oval.OVALRequest(parser)
+            ovalrequest = oval.OVALRequest(parser)
             current_app.logger.info(time.ctime() + " OVAL Request forr %s created" % filename)
-            request.initialize()
-            requests.append( request )
+            ovalrequest.initialize()
+            _requests.append( ovalrequest )
         except OVALRequestError:
             current_app.logger.error(time.ctime() + " could not generate OVAL Request for " + filename)
-            
-    return render_template('checks/description.html', requests=requests)
 
+    session['requests'] = [jsonpickle.encode(ovalrequest) for ovalrequest in _requests]
 
-@bp.route('/results_overview', methods=('GET', 'POST'))
-def results_overview():
-    
-    drivers = [oval.OVALDriver(request) for request in requests]
-    # we have handled the requests so we no longer need them
-    current_app.logger.info(time.ctime() + " OVAL drivers initialized")
-    del requests[:]
-    
-    return render_template('checks/results_overview.html', drivers=drivers)
+    return render_template('checks/description.html', requests=_requests)
+
 
 
 
