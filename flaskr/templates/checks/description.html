@@ -17,9 +17,10 @@
       <hr/>
 
     {% endfor %}
-
-    <ul>
-      <li><a href="{{ url_for('checks.results_overview') }}">Run</a></li>
-    </ul>
+    <div id="runButton">
+      <a href="{{ url_for('checks.results_overview') }}">
+        <button type="button" class="btn btn-primary">Run</button>
+      </a>
+    </div>
 {% endblock %}
 

@@ -127,9 +127,9 @@ class OVALDriver:
             inconsistent. append("oread")
 
         if not inconsistent:
-            return "File permissions are consistent"
+            return "File permissions are consistent for %s" % path
         else:
-            return "The following permissions are inconsistent: " + str(inconsistent)
+            return "The following permissions are inconsistent for %s: %s" % (path, str(inconsistent))
 
 
 def get_num_processors():

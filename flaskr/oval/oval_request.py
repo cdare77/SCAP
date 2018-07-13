@@ -25,11 +25,7 @@ class OVALRequest:
         self.initialized = False
         self.dictionary = parser.get_dictionary()
         
-        # Note that this will occur if the user has not executed
-        # parser.parse()
         if not self.dictionary:
-#            if __name__ != "__main__":
-#                current_app.logger.error(time.ctime() + '\tFailed to create OVAL Request: empty dictionary')
             raise OVALDriveError('Cannot create an OVAL Request from an empty dictionary')
 
 

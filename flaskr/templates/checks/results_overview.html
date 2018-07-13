@@ -12,7 +12,11 @@
             <h1>{{ driver.request.title }}</h1>
           </div>
         </header>
-        <p class="body">{{ driver.execute_tests() }}</p>
+        <ul>
+        {% for test in driver.execute_tests() %}
+          <li>{{ test }}</li>
+        {% endfor %}
+        </ul>
       </article>
       <hr/>
 

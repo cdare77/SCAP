@@ -67,3 +67,33 @@ Fri Jul 13 11:26:31 2018	10.26.106.117 successfully uploaded sshd_disable_compre
 Fri Jul 13 11:26:40 2018	10.26.106.117 successfully connected to chris
 Fri Jul 13 11:26:46 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
 Fri Jul 13 11:26:46 2018	10.26.106.117 attempted to upload oval_driver.py
+Fri Jul 13 11:33:14 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:33:21 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:33:21 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:34:51 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:34:57 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:34:57 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:35:28 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:35:33 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:35:33 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:36:21 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:36:27 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:36:27 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:37:16 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:37:21 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:37:21 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:39:37 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:39:41 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:39:41 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:40:57 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:41:01 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:41:01 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:43:08 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:43:12 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:43:12 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:43:58 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:44:02 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:44:02 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 11:46:38 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 11:46:44 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 11:46:44 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml

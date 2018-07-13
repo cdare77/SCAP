@@ -17,17 +17,28 @@ bp = Blueprint('checks', __name__, url_prefix='/checks')
 
 @bp.route('/description', methods=('GET', 'POST'))
 def description():
+
+    # ensure global requests are clean
+    del requests[:]
+
     filenames = g.filenames
 
     for filename in filenames:
         # create a parser and request for each file
         parser = oval.OVALParser()
-        parser.parse(filename)
-        request = oval.OVALRequest(parser)
-        request.initialize()
-        
-        requests.append( request )
-    
+        current_app.logger.info(time.ctime() + " OVAL Parser for %s initialized" % filename)
+        try:
+            parser.parse(filename)
+        except OVALParseError:
+            current_app.logger.error(time.ctime() + " OVAL Parser could not parse " + filename)
+        try:
+            request = oval.OVALRequest(parser)
+            current_app.logger.info(time.ctime() + " OVAL Request forr %s created" % filename)
+            request.initialize()
+            requests.append( request )
+        except OVALRequestError:
+            current_app.logger.error(time.ctime() + " could not generate OVAL Request for " + filename)
+            
     return render_template('checks/description.html', requests=requests)
 
 
@@ -35,6 +46,8 @@ def description():
 def results_overview():
     
     drivers = [oval.OVALDriver(request) for request in requests]
+    # we have handled the requests so we no longer need them
+    current_app.logger.info(time.ctime() + " OVAL drivers initialized")
     del requests[:]
     
     return render_template('checks/results_overview.html', drivers=drivers)

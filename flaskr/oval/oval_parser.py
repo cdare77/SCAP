@@ -71,9 +71,6 @@ class OVALParser:
     def __init__(self, verbose=False):
         """ Constructor for OVAL parser """
         
-#        if __name__ != "__main__":
-#            current_app.logger.info(time.ctime() + " OVAL Parser initialized")
-        
         self.verbose = verbose
         self.elements_list = []
 
@@ -174,6 +171,8 @@ class OVALParser:
             XML elements. If the stack is not empty by the end of parsing, 
             then there was some error with the input file"""
 
+        # ensure that elements list is cleaned
+        del self.elements_list[:]
         # mimic recursive behavior
         tagStack = deque()
     
