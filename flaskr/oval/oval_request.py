@@ -13,7 +13,6 @@ class OVALRequestError(Exception):
     pass
 
 
-
 class OVALRequest:
     """
     This class essentially cleans the output from the OVAL Parser, determines
@@ -25,11 +24,22 @@ class OVALRequest:
 
         self.initialized = False
         self.dictionary = parser.get_dictionary()
+        
+        # Note that this will occur if the user has not executed
+        # parser.parse()
         if not self.dictionary:
-            current_app.logger.error(time.ctime() + '\tFailed to create OVAL Request: empty dictionary')
+#            if __name__ != "__main__":
+#                current_app.logger.error(time.ctime() + '\tFailed to create OVAL Request: empty dictionary')
             raise OVALDriveError('Cannot create an OVAL Request from an empty dictionary')
 
-        
+
+    def __repr__(self):
+        if not self.initialized:
+            return "Uninitialized request"
+        else:
+            return "OVALRequest(%s): %s" % (self.title, self.description)
+
+
     def initialize(self):
         """ The __init__ function should not call these additional
             methods for debugging purposes. We want to allow an
@@ -69,8 +79,6 @@ class OVALRequest:
         files = self.get_all_elems('filepath') # list to return
         paths = self.get_all_elems('path')
         
-        print(paths)
-        
         # Since get_body_content only grabs substrings, paths will
         # also grab all content in filepaths (files)
         if files:
@@ -81,11 +89,9 @@ class OVALRequest:
     
         # if there is nothing left to iterate over, we are done
         if not paths:
-            return files
+            return [file.content for file in files]
         
         filenames = self.get_all_elems('filename')
-        
-        print(files)
         
         ####################################
         #   NEEDS IMPROVEMENT - O(N^4)     #
@@ -101,33 +107,37 @@ class OVALRequest:
 
         return files
 
+
     def determine_tests(self):
+        """ helper method to examine the xml tags and evaluate
+            which tests to run"""
     
         # list of files we will return
         tests = []
 
-        file_state = self.get_body_content('file_state')
-        textfilecontent = self.get_body_content('textfilecontent')
+        file_state = self.get_all_elems('file_state')
+        textfilecontent = self.get_all_elems('textfilecontent')
         
-        if 'id' in file_state.properties and 'file_permissions' in file_state.properties['id']:
+        if file_state and 'id' in file_state[0].properties and 'file_permissions' in file_state[0].properties['id']:
             tests.append('check_file_permissions')
         if textfilecontent:
             tests.append('search_for_pattern')
 
         return tests
-    
-if len(sys.argv) < 2:
-    print("\n\tUsage: python oval_parser.py [file]\n")
-    sys.exit()
 
-filename = sys.argv[1]
-
-parser = OVALParser(filename, False)
-print(parser)
-
-driver = OVALRequest(parser)
-files = driver.get_all_files()
-
-print("get_all_files:", driver.get_all_files())
-print("search_for_pattern:", driver.search_for_pattern())
-print("grab_file_permissions:", driver.check_file_permissions(files[0]))
+#if len(sys.argv) < 2:
+#    print("\n\tUsage: python oval_parser.py [file]\n")
+#    sys.exit()
+#
+#filename = sys.argv[1]
+#
+#parser = OVALParser()
+#parser.parse(filename)
+#print(parser)
+#
+#request= OVALRequest(parser)
+#request.initialize()
+#print("request:", request)
+#
+#print("get_all_files:", request.get_all_files())
+#print("request tests:", request.tests)

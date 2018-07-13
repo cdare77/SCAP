@@ -73,6 +73,5 @@ def load_ip_addr():
 @bp.route('/logout')
 def logout():
     session.clear()
+    g.pop('IPAddr', None)
     return redirect(url_for('index'))
-
-

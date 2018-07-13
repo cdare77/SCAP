@@ -71,8 +71,8 @@ class OVALParser:
     def __init__(self, verbose=False):
         """ Constructor for OVAL parser """
         
-        if __name__ != "__main__":
-            current_app.logger.info(time.ctime() + " OVAL Parser initialized")
+#        if __name__ != "__main__":
+#            current_app.logger.info(time.ctime() + " OVAL Parser initialized")
         
         self.verbose = verbose
         self.elements_list = []
@@ -110,6 +110,11 @@ class OVALParser:
             d[elem.element_name] = elem
 
         return d
+    
+    
+    def set_verbose(self, verbose):
+        """ Helper method to adjust whether the parser is verbose or not """
+        self.verbose = verbose
 
     def _is_xml_file(self, filename):
         """ Helper function to check if a given string could be an XML file """
@@ -231,13 +236,13 @@ class OVALParser:
 
 
 
-if len(sys.argv) < 2:
-    print("\n\tUsage: python oval_parser.py [file]\n")
-    sys.exit()
-
-filename = sys.argv[1]
-
-parser = OVALParser(True)
-print(parser)
-parser.parse(filename)
-print(parser)
+#if len(sys.argv) < 2:
+#    print("\n\tUsage: python oval_parser.py [file]\n")
+#    sys.exit()
+#
+#filename = sys.argv[1]
+#
+#parser = OVALParser(True)
+#print(parser)
+#parser.parse(filename)
+#print(parser)

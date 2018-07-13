@@ -1,4 +1,5 @@
-__all__ = ['oval_request', 'oval_parser']
+__all__ = ['oval_request', 'oval_parser', 'oval_driver']
 
 from oval_request import (OVALRequest, OVALRequestError)
 from oval_parser import (XMLElement, OVALParser, OVALParseError)
+from oval_driver import (OVALDriver, OVALDriverError)

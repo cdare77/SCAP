@@ -7,34 +7,38 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
-
 import oval
 
-from flaskr.db import get_db
+
+# GLOBAL Array of requests
+requests = []
 
 bp = Blueprint('checks', __name__, url_prefix='/checks')
 
 @bp.route('/description', methods=('GET', 'POST'))
 def description():
-
     filenames = g.filenames
-    requests = []
-
-    print(filenames)
 
     for filename in filenames:
+        # create a parser and request for each file
+        parser = oval.OVALParser()
+        parser.parse(filename)
+        request = oval.OVALRequest(parser)
+        request.initialize()
+        
+        requests.append( request )
     
-        parser = oval.OVALParser(filename, False)
-        requests.append( oval.OVALRequest(parser) )
-
     return render_template('checks/description.html', requests=requests)
 
 
-def dict_to_str(dictionary):
-    my_str = ''
-    for key, value in dictionary.items():
-        my_str += "{}\t:\t{}\n".format(key, value)
-    return my_str
+@bp.route('/results_overview', methods=('GET', 'POST'))
+def results_overview():
+    
+    drivers = [oval.OVALDriver(request) for request in requests]
+    del requests[:]
+    
+    return render_template('checks/results_overview.html', drivers=drivers)
+
 
 
 @bp.before_app_request

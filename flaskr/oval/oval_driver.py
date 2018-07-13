@@ -3,9 +3,10 @@ Author: Chris Dare
 Version: 1.0
 """
 
-import sys, stat, os, multiprocessing
+import sys, stat, os, re, multiprocessing
 
 from oval_request import OVALRequest
+from oval_parser import OVALParser, XMLElement
 
 
 
@@ -14,12 +15,10 @@ class OVALDriverError(Exception):
 
 class OVALDriver:
 
-    test_dictionary = {
-        'check_file_permissions' : self.check_file_permissions(),
-        'search_for_pattern' : self.search_for_pattern()
-        }
-
     def __init__(self, request):
+        """ Constructor for driver - iteratively executes all tests found in
+            a single file """
+    
         self.request = request
         
         # Our request must be initialized. This may throw errors;
@@ -28,15 +27,18 @@ class OVALDriver:
         if not request.initialized:
             request.initialize()
 
+        self.test_dictionary = {
+            'check_file_permissions' : self.check_file_permissions(),
+            'search_for_pattern' : self.search_for_pattern()
+        }
+
 
     def execute_tests(self):
         """ Executes all tests in an OVAL Request's ticket """
-        
-        for test in self.request.tests:
-            test_dictionary[test]()
+        return [self.test_dictionary[test] for test in self.request.tests]
 
 
-    def search_for_pattern(self, path):
+    def search_for_pattern(self):
         """ Given a regex pattern provided in the OVAL
             file, we attempt to use that pattern for matching
             in a destination file """
@@ -46,7 +48,8 @@ class OVALDriver:
         if not pattern:
             return
         
-        my_file = open(full_path, 'r').read()
+        path = self.request.get_all_files()[0]
+        my_file = open(path, 'r').read()
         
         # Check if pattern is a multiline regex
         flags = None
@@ -55,15 +58,22 @@ class OVALDriver:
 
         try:
             result = re.match(pattern, my_file, flags)
-            return result
+            if not result:
+                return "Pattern inconsistent or not found in %s" % path
+            else:
+                return "%s is consistent" % path
         except:
             # pcre (php) regex will fail in python
             raise OVALDriveError("Regex pattern not compatible with Python RegEx 101. Remember not to use inline flags.")
 
 
-    def check_file_permissions(self, path):
+    def check_file_permissions(self):
         """ If file permissions are provided, attempt to check
             the destination file for inconsistencies """
+
+        path = self.request.get_all_files()[0]
+        
+        print("Path:", path)
 
         st = os.stat(path)
         inconsistent = []   # keep track of inconsistent permissions
@@ -131,4 +141,21 @@ def get_num_processors():
     return cpu_count
 
 
-print(get_num_processors())
+#if len(sys.argv) < 2:
+#    print("\n\tUsage: python oval_parser.py [file]\n")
+#    sys.exit()
+#
+#print("Num processors:", get_num_processors())
+#
+#filename = sys.argv[1]
+#
+#parser = OVALParser()
+#parser.parse(filename)
+#print(parser)
+#
+#request = OVALRequest(parser)
+#request.initialize()
+#print("request:", request)
+#
+#driver = OVALDriver(request)
+#print(driver.execute_tests())

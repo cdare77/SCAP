@@ -14,11 +14,12 @@
         </header>
         <p class="body">{{ request.description }}</p>
       </article>
-
-      {% if not loop.last %}
-        <hr>
-      {% endif %}
+      <hr/>
 
     {% endfor %}
+
+    <ul>
+      <li><a href="{{ url_for('checks.results_overview') }}">Run</a></li>
+    </ul>
 {% endblock %}
 
