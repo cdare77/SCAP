@@ -130,14 +130,6 @@ class OVALDriver:
             return ("The following permissions are inconsistent for %s: %s" % (path, str(inconsistent)), False)
 
 
-def get_num_processors():
-    cpu_count = 0
-    try:
-        cpu_count = len(os.sched_getaffinity(0))
-    except AttributeError:
-        cpu_count = multiprocessing.cpu_count()
-    return cpu_count
-
 
 # For testing purposes only
 if __name__ == "__main__":

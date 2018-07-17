@@ -1,12 +1,11 @@
 import functools, os, time, oval
 
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 
 from flask import (
     send_from_directory, current_app, Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
-from werkzeug.security import check_password_hash, generate_password_hash
-from werkzeug.utils import secure_filename
+
 
 ########################################################
 #               GLOBAL VARIABLES                       #
@@ -156,8 +155,13 @@ def _create_descriptions():
 
     # determine how program is going to be run
     if processType == 'parallel':
-        _pool = Pool(processes=int(coreFactor))
-        current_app.logger.info(time.ctime() + "\tProcess pool with %s processes initialized for descriptions" % coreFactor)
+    
+        # Multiply core factor by our number of cores
+        cores = _get_num_processors()
+        num_processes = int(float(coreFactor) * cores)
+    
+        _pool = Pool(processes=num_processes)
+        current_app.logger.info(time.ctime() + "\tProcess pool with %s processes initialized for descriptions" % num_processes)
         _requests = _pool.map(_get_description, filenames)
     
     else:
@@ -165,6 +169,15 @@ def _create_descriptions():
             _requests.append(_get_description(filename))
 
 
+def _get_num_processors():
+    """ Does what the name suggests - returns the number
+        of cpus """
+    cores = 0
+    try:
+        cores = len(os.sched_getaffinity(0))
+    except AttributeError:
+        cores = cpu_count()
+    return cores
 
 ########################################################
 #                    COOKIE METHODS                    #

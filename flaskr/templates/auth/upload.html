@@ -15,7 +15,7 @@
     <option value="parallel">Parallel</option>
   </select>
   <label for="coreFactorInput" id="coreFactorLabel" style="display: none; text-align: left; width: 150px;">Core Factor: </label>
-  <input type="number" id="coreFactorInput" min="1" max="10" name="coreFactor" value="{{ request.form['coreFactor'] }}" style="display: none; width: 150px;">
+  <input type="number" id="coreFactorInput" placeholder="1.0" step="0.25" min="0.25" max="5.0" name="coreFactor" value="{{ request.form['coreFactor'] }}" style="display: none; width: 150px;">
   <br/>
   <br/>
   <input type="submit" value="Send">
