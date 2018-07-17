@@ -55,7 +55,5 @@ def create_app(test_config=None):
     from . import checks
     app.register_blueprint(checks.bp)
 
-    from . import results
-    app.register_blueprint(results.bp)
 
     return app

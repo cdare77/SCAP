@@ -234,14 +234,15 @@ class OVALParser:
             raise OVALParseError("Missing closing tag for " + tagStack[-1].element_name)
 
 
+# For testing purposes only
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("\n\tUsage: python oval_parser.py [file]\n")
+        sys.exit()
 
-#if len(sys.argv) < 2:
-#    print("\n\tUsage: python oval_parser.py [file]\n")
-#    sys.exit()
-#
-#filename = sys.argv[1]
-#
-#parser = OVALParser(True)
-#print(parser)
-#parser.parse(filename)
-#print(parser)
+    filename = sys.argv[1]
+
+    parser = OVALParser(True)
+    print(parser)
+    parser.parse(filename)
+    print(parser)

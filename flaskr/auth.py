@@ -38,8 +38,13 @@ def upload():
             flash('No selected file')
             return redirect(request.url)
         
+        # ensure previous files do not persist
+        session.pop('filenames', None)
+
         # create list of valid files
         session['filenames'] = []
+
+        # gather user info for logging
         my_addr = socket.gethostbyname(socket.getfqdn())
 
         for file in files:
@@ -50,6 +55,13 @@ def upload():
                 current_app.logger.info(time.ctime() + '\t{} successfully uploaded {}'.format(my_addr, filename))
             else:
                 current_app.logger.info(time.ctime() + '\t{} attempted to upload {}'.format(my_addr, file.filename))
+
+        processType = request.form['processType']
+        session['processType'] = processType
+
+        if processType == 'parallel':
+            session['coreFactor'] = request.form['coreFactor']
+ 
 
         if session['filenames']:
             return redirect(url_for('checks.description'))
@@ -78,4 +90,5 @@ def load_ip_addr():
 def logout():
     session.clear()
     g.pop('IPAddr', None)
+    g.pop('filenames', None)
     return redirect(url_for('index'))

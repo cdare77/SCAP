@@ -121,19 +121,21 @@ class OVALRequest:
 
         return tests
 
-#if len(sys.argv) < 2:
-#    print("\n\tUsage: python oval_parser.py [file]\n")
-#    sys.exit()
-#
-#filename = sys.argv[1]
-#
-#parser = OVALParser()
-#parser.parse(filename)
-#print(parser)
-#
-#request= OVALRequest(parser)
-#request.initialize()
-#print("request:", request)
-#
-#print("get_all_files:", request.get_all_files())
-#print("request tests:", request.tests)
+# For testing purposes only
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("\n\tUsage: python oval_parser.py [file]\n")
+        sys.exit()
+
+    filename = sys.argv[1]
+
+    parser = OVALParser()
+    parser.parse(filename)
+    print(parser)
+
+    request= OVALRequest(parser)
+    request.initialize()
+    print("request:", request)
+
+    print("get_all_files:", request.get_all_files())
+    print("request tests:", request.tests)

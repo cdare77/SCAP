@@ -323,3 +323,21 @@ img.bg {
     margin-left: -468px;   /* 50% */
   }
 }
+
+.failed {
+    background: red;
+    color: white;
+    font-family: 'Courier New', 'courier';
+    width: 80px;
+    text-align: center;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.passed {
+    background: green;
+    font-family: 'Courier New', 'courier';
+    color: white;
+    width: 80px;
+    text-align: center;
+    border-radius: 8px 8px 8px 8px;
+}

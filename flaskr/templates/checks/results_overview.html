@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Results Overview{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% for result in results %}
+      <article class="post">
+        <header>
+          <div>
+            <h1>{{ result.title }}</h1>
+          </div>
+        </header>
+        <br/>
+        <div class="row py-3">
+          <div class="col-md-1 col-sm-1">
+            {% if result.passed %}
+            <div class="passed">PASSED</div>
+            {% else %}
+            <div class="failed">FAILED</div>
+            {% endif %}
+          </div>
+          <div class="col-md-11 col-sm-11">
+            <ul>
+            {% for description in result.descriptions %}
+              <li>{{ description }}</li>
+            {% endfor %}
+            </ul>
+          </div>
+         </div>
+
+      </article>
+      <hr/>
+    {% endfor %}
+    <form method="post">
+        <input type="submit" value="Upload Again" style="margin-top: 15px;"/>
+    </form>
+{% endblock %}

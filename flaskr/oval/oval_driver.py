@@ -4,7 +4,6 @@ Version: 1.0
 """
 
 import sys, stat, os, re, multiprocessing
-
 from oval_request import OVALRequest
 from oval_parser import OVALParser, XMLElement
 
@@ -15,18 +14,19 @@ class OVALDriverError(Exception):
 
 class OVALDriver:
 
-    def __init__(self, request):
+    def __init__(self, request, parallel=False):
         """ Constructor for driver - iteratively executes all tests found in
             a single file """
     
         self.request = request
-        
+        self.parallel = parallel
         # Our request must be initialized. This may throw errors;
         # however, we would rather not initialize a driver if there
         # is a faulty request
         if not request.initialized:
             request.initialize()
 
+        # dictionary which matches outputs of requests to functions
         self.test_dictionary = {
             'check_file_permissions' : self.check_file_permissions(),
             'search_for_pattern' : self.search_for_pattern()
@@ -59,9 +59,9 @@ class OVALDriver:
         try:
             result = re.match(pattern, my_file, flags)
             if not result:
-                return "Pattern inconsistent or not found in %s" % path
+                return ("Pattern inconsistent or not found in %s" % path, False)
             else:
-                return "%s is consistent" % path
+                return ("%s is consistent" % path, True)
         except:
             # pcre (php) regex will fail in python
             raise OVALDriveError("Regex pattern not compatible with Python RegEx 101. Remember not to use inline flags.")
@@ -73,8 +73,6 @@ class OVALDriver:
 
         path = self.request.get_all_files()[0]
         
-        print("Path:", path)
-
         st = os.stat(path)
         inconsistent = []   # keep track of inconsistent permissions
 
@@ -127,9 +125,9 @@ class OVALDriver:
             inconsistent. append("oread")
 
         if not inconsistent:
-            return "File permissions are consistent for %s" % path
+            return ("File permissions are consistent for %s" % path, True)
         else:
-            return "The following permissions are inconsistent for %s: %s" % (path, str(inconsistent))
+            return ("The following permissions are inconsistent for %s: %s" % (path, str(inconsistent)), False)
 
 
 def get_num_processors():
@@ -141,21 +139,23 @@ def get_num_processors():
     return cpu_count
 
 
-#if len(sys.argv) < 2:
-#    print("\n\tUsage: python oval_parser.py [file]\n")
-#    sys.exit()
-#
-#print("Num processors:", get_num_processors())
-#
-#filename = sys.argv[1]
-#
-#parser = OVALParser()
-#parser.parse(filename)
-#print(parser)
-#
-#request = OVALRequest(parser)
-#request.initialize()
-#print("request:", request)
-#
-#driver = OVALDriver(request)
-#print(driver.execute_tests())
+# For testing purposes only
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("\n\tUsage: python oval_driver.py [file]\n")
+        sys.exit()
+
+    print("Num processors:", get_num_processors())
+
+    filename = sys.argv[1]
+
+    parser = OVALParser()
+    parser.parse(filename)
+    print(parser)
+
+    request = OVALRequest(parser)
+    request.initialize()
+    print("request:", request)
+
+    driver = OVALDriver(request)
+    print(driver.execute_tests())

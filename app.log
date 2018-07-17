@@ -165,3 +165,395 @@ Fri Jul 13 15:34:52 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Py
 Fri Jul 13 15:34:52 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
 Fri Jul 13 15:34:55 2018 OVAL drivers initialized
 Fri Jul 13 15:34:55 2018 OVAL drivers initialized
+Fri Jul 13 15:45:51 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 15:45:59 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 15:45:59 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Fri Jul 13 15:45:59 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Fri Jul 13 15:46:00 2018 OVAL drivers initialized
+Fri Jul 13 15:48:46 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 15:48:46 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 15:48:50 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 15:48:50 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 15:48:50 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Fri Jul 13 15:48:50 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Fri Jul 13 15:48:50 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Fri Jul 13 15:48:50 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Fri Jul 13 15:48:53 2018 OVAL drivers initialized
+Fri Jul 13 15:48:53 2018 OVAL drivers initialized
+Fri Jul 13 15:49:13 2018	10.26.106.117 successfully connected to chris
+Fri Jul 13 15:49:17 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 15:49:17 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Fri Jul 13 15:49:17 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Fri Jul 13 15:49:18 2018 OVAL drivers initialized
+Fri Jul 13 15:49:23 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 13 15:49:23 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Fri Jul 13 15:49:23 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Fri Jul 13 15:49:24 2018 OVAL drivers initialized
+Fri Jul 13 15:49:28 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 15:49:28 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Fri Jul 13 15:49:28 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Fri Jul 13 15:51:07 2018	10.26.106.117 successfully connected to chris dare
+Fri Jul 13 15:51:11 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 15:51:11 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Fri Jul 13 15:51:11 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Fri Jul 13 15:52:53 2018	10.26.106.117 successfully connected to chris dare
+Fri Jul 13 15:52:57 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 15:52:57 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Fri Jul 13 15:52:57 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Fri Jul 13 15:52:58 2018 OVAL drivers initialized
+Fri Jul 13 15:59:55 2018	10.26.106.117 successfully connected to sc
+Fri Jul 13 15:59:59 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Fri Jul 13 15:59:59 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Fri Jul 13 15:59:59 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Fri Jul 13 16:00:00 2018 OVAL drivers initialized
+Tue Jul 17 09:38:56 2018	10.26.106.117 successfully connected to ch
+Tue Jul 17 10:05:05 2018	10.26.106.117 successfully connected to ch
+Tue Jul 17 10:15:39 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:15:39 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:15:39 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:19:31 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:19:38 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:19:38 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:19:38 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:20:57 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:20:57 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:20:57 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:21:14 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:21:18 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:21:18 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:21:18 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:24:00 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:24:04 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:24:04 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:24:04 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:24:11 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:24:19 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 10:24:19 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 10:24:19 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 10:28:34 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:28:34 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:28:38 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:28:38 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:28:38 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:28:38 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:28:38 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:28:38 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:28:46 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:28:46 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:28:49 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:28:49 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:28:49 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:28:49 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:28:49 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:28:49 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:29:58 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:30:01 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:30:01 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:30:01 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 10:30:07 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:30:10 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 10:30:10 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 10:30:10 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 10:30:16 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 10:30:25 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 10:30:25 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 10:30:25 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 11:35:12 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 11:35:26 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 11:39:36 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 11:39:36 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 11:43:15 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 11:43:24 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 11:43:24 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 11:43:24 2018 Process pool with 2 processes initialized
+Tue Jul 17 11:43:24 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 11:43:24 2018 OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 11:43:24 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 11:43:24 2018 OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 12:49:22 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 12:49:22 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 12:49:32 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 12:49:32 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 12:49:32 2018	Process pool with 2 processes initialized
+Tue Jul 17 12:49:32 2018	Process pool with 2 processes initialized
+Tue Jul 17 12:49:32 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 12:49:32 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 12:49:32 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 12:49:32 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 12:55:59 2018	Process pool with 2 processes initialized
+Tue Jul 17 12:55:59 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 12:55:59 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:07:44 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:07:52 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:07:52 2018	Process pool with 2 processes initialized
+Tue Jul 17 13:07:52 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:07:52 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:07:54 2018 OVAL drivers initialized
+Tue Jul 17 13:12:53 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:12:53 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:12:53 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:12:54 2018	OVAL drivers initialized
+Tue Jul 17 13:23:18 2018	10.26.106.117 successfully connected to Chris
+Tue Jul 17 13:23:32 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:23:32 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:23:32 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:23:32 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:23:32 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:23:32 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:23:32 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:23:33 2018	OVAL drivers initialized
+Tue Jul 17 13:23:49 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:23:57 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:24:15 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:24:25 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:24:25 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:24:25 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:24:25 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:24:25 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:24:25 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:24:25 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:24:26 2018	OVAL drivers initialized
+Tue Jul 17 13:24:26 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:26:41 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:26:50 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:26:50 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:26:50 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:26:51 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:26:51 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:26:51 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:26:51 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:27:37 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:28:12 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:28:28 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:28:28 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:28:28 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:28:28 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:28:28 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:28:28 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:28:28 2018	OVAL Request forr /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:29:18 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:30:23 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:30:30 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:30:40 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:30:40 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:30:40 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:30:40 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:30:40 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:30:40 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:30:40 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:30:42 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:30:42 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:30:42 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:30:42 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:30:42 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:31:38 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:31:46 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:31:46 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:31:46 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:31:46 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:31:46 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:31:46 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:31:46 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:31:48 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:31:48 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:31:48 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:31:48 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:31:48 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:31:50 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:31:50 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:31:50 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:31:50 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:31:50 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:36:51 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:36:51 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:36:51 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:36:51 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:36:51 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:36:55 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:36:55 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:36:55 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:36:55 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:36:55 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:36:55 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:38:28 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:38:37 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:38:37 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:38:37 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:38:37 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:38:37 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:38:37 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:38:37 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:39:27 2018	OVAL drivers initialized
+Tue Jul 17 13:39:27 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:40:32 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:40:43 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:40:43 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:40:43 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:40:43 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:40:43 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:40:43 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:40:43 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:40:52 2018	OVAL drivers initialized
+Tue Jul 17 13:40:52 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:42:25 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:42:33 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:42:33 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:42:33 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:42:33 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:42:33 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:42:33 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:42:33 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:42:35 2018	OVAL drivers initialized
+Tue Jul 17 13:42:35 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:43:32 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:43:39 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:43:39 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:43:39 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:43:39 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:43:39 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:43:39 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:43:39 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:44:17 2018	OVAL drivers initialized
+Tue Jul 17 13:44:17 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:46:59 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:48:40 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:48:40 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:48:40 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:48:40 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:48:40 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:48:40 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:48:40 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:49:30 2018	OVAL drivers initialized
+Tue Jul 17 13:49:30 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:50:14 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:50:18 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:50:18 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:50:18 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:50:18 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:50:18 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:50:18 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:50:19 2018	OVAL drivers initialized
+Tue Jul 17 13:56:43 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:56:50 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:56:50 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:56:50 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 13:56:50 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:56:50 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:56:50 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:56:50 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:57:14 2018	OVAL drivers initialized
+Tue Jul 17 13:57:14 2018	Process pool with 2 processes initialized for execution
+Tue Jul 17 13:58:54 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 13:59:02 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 13:59:02 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 13:59:02 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 13:59:02 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 13:59:02 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 13:59:02 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 13:59:02 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 13:59:24 2018	OVAL drivers initialized
+Tue Jul 17 13:59:24 2018	Process pool with 1 processes initialized for execution
+Tue Jul 17 14:02:32 2018	10.26.106.117 successfully connected to chrs
+Tue Jul 17 14:02:39 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:02:39 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:02:39 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:02:39 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:02:39 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:02:39 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:02:39 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:02:43 2018	OVAL drivers initialized
+Tue Jul 17 14:02:43 2018	Process pool with 1 processes initialized for execution
+Tue Jul 17 14:19:07 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 14:19:15 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:19:15 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:19:15 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:19:15 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:19:15 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:19:15 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:19:15 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:19:26 2018	OVAL drivers initialized
+Tue Jul 17 14:19:26 2018	Process pool with 1 processes initialized for execution
+Tue Jul 17 14:21:24 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 14:21:31 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:21:31 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:21:31 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:21:31 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:21:31 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:21:31 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:21:31 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:21:36 2018	OVAL drivers initialized
+Tue Jul 17 14:21:36 2018	Process pool with 1 processes initialized for execution
+Tue Jul 17 14:23:43 2018	Process pool with 1 processes initialized for execution
+Tue Jul 17 14:23:53 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 14:24:05 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:24:05 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:24:05 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:24:05 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:24:05 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:24:05 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:24:05 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:24:14 2018	OVAL drivers initialized
+Tue Jul 17 14:24:14 2018	Process pool with 1 processes initialized for execution
+Tue Jul 17 14:24:25 2018	Process pool with 1 processes initialized for execution
+Tue Jul 17 14:25:36 2018	Process pool with 1 processes initialized for execution
+Tue Jul 17 14:28:57 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 14:30:14 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:30:14 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:30:14 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 14:30:26 2018	Process pool with 2 processes initialized for descriptions
+Tue Jul 17 14:30:26 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:30:26 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:30:26 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:30:26 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:30:30 2018	OVAL drivers initialized
+Tue Jul 17 14:31:36 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:31:36 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:31:36 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:31:36 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:31:36 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:31:36 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:31:36 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:31:38 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:31:38 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:31:38 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:31:38 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:31:38 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:31:40 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:31:40 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:31:40 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:31:40 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:31:40 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:31:42 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:31:42 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:31:42 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:31:42 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:31:42 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:31:43 2018	OVAL drivers initialized
+Tue Jul 17 14:32:00 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:32:00 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:32:23 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:32:23 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:32:23 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:32:23 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:32:26 2018	OVAL drivers initialized
+Tue Jul 17 14:32:59 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 14:33:05 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:33:05 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:33:05 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:33:05 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:33:05 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:33:05 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:33:06 2018	OVAL drivers initialized
+Tue Jul 17 14:34:11 2018	10.26.106.117 successfully connected to chris
+Tue Jul 17 14:34:16 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:34:16 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:34:16 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:34:16 2018	OVAL drivers initialized
+Tue Jul 17 14:34:25 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Jul 17 14:34:25 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Tue Jul 17 14:34:25 2018	Process pool with 1 processes initialized for descriptions
+Tue Jul 17 14:34:25 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Jul 17 14:34:25 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Jul 17 14:34:25 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Jul 17 14:34:25 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Jul 17 14:34:26 2018	OVAL drivers initialized
