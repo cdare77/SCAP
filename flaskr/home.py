@@ -1,3 +1,5 @@
+from NaServer import *
+
 from flask import (
     Blueprint, flash, g, session, redirect, render_template, request, url_for, current_app
 )
@@ -20,6 +22,16 @@ def index():
             error = 'Password is required.'
 
         # Attempt to check if login works here
+	s = NaServer(IPAddr, 1 , 140)
+	s.set_server_type("FILER")
+	s.set_transport_type("HTTPS")
+	s.set_port(443)
+	s.set_style("LOGIN")
+	s.set_admin_user("admin", password)
+
+	response = s.invoke("system-get-version")
+	response.sprintf()
+	print("Response after invoke:", response)
 
         if error is not None:
             flash(error)
