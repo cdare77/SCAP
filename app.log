@@ -606,3 +606,42 @@ Thu Jul 19 11:25:53 2018	192.168.1.49 successfully connected to 192.168.1.210
 Thu Jul 19 11:41:23 2018	192.168.1.49 successfully connected to 192.168.1.210
 Thu Jul 19 11:46:00 2018	192.168.1.49 successfully connected to 192.168.1.210
 Thu Jul 19 11:46:29 2018	192.168.1.49 successfully connected to 192.168.1.210
+Wed Jul 25 10:33:10 2018	Failed login request from 10.26.106.117
+Wed Jul 25 10:33:10 2018	Failed login request from 10.26.106.117
+Wed Jul 25 10:34:11 2018	Failed login request from 10.26.106.117
+Wed Jul 25 10:34:16 2018	Failed login request from 10.26.106.117
+Wed Jul 25 10:37:09 2018	 continuing as localhost
+Wed Jul 25 10:37:44 2018	 continuing as localhost
+Wed Jul 25 10:40:29 2018	 continuing as localhost
+Wed Jul 25 10:42:10 2018	 continuing as localhost
+Wed Jul 25 10:42:40 2018	 continuing as localhost
+Wed Jul 25 11:05:48 2018	 continuing as localhost
+Wed Jul 25 11:06:09 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Wed Jul 25 11:06:09 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Wed Jul 25 11:06:09 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Wed Jul 25 11:06:09 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Wed Jul 25 11:06:09 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Wed Jul 25 11:06:09 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Wed Jul 25 11:06:11 2018	OVAL drivers initialized
+Wed Jul 25 11:06:11 2018	OVAL Result created for SSH Server Private Key Permissions
+Wed Jul 25 11:06:11 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Wed Jul 25 11:06:23 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Wed Jul 25 11:06:23 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Wed Jul 25 11:06:23 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Wed Jul 25 11:06:23 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Wed Jul 25 11:06:23 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Wed Jul 25 11:06:23 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Wed Jul 25 11:06:34 2018	OVAL drivers initialized
+Wed Jul 25 11:06:34 2018	OVAL Result created for SSH Server Private Key Permissions
+Wed Jul 25 11:06:34 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Wed Jul 25 11:06:49 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Wed Jul 25 11:06:49 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Wed Jul 25 11:06:49 2018	Process pool with 8 processes initialized for descriptions
+Wed Jul 25 11:06:49 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Wed Jul 25 11:06:49 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Wed Jul 25 11:06:49 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Wed Jul 25 11:06:49 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Wed Jul 25 11:06:53 2018	OVAL drivers initialized
+Wed Jul 25 11:06:53 2018	OVAL Result created for SSH Server Private Key Permissions
+Wed Jul 25 11:06:53 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Wed Jul 25 11:22:17 2018	 continuing as localhost

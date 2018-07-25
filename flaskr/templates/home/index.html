@@ -2,20 +2,28 @@
 
 {% block header %}
   <h1>{% block title %}Home{% endblock %}</h1>
-  {% if g.user %}
-    <a class="action" href="{{ url_for('home.create') }}">New</a>
-  {% endif %}
 {% endblock %}
 
 {% block content %}
   <form method="post" autocomplete="off">
-    <label for="IPAddr">IP Address</label>
+    <label for="endnode">Choose end node:</label>
+    <select name="endnode" id="endnode" style="width: 25%;">
+      <option value="ontap" selected>ONTAP</option>
+      <option value="localhost">localhost</option> 
+    </select>
+    <br/>
+    <br/>
+    <label for="IPAddr" id="IPAddrlabel">IP Address</label>
     <input type="text" name="IPAddr" id="IPAddr" value="{{ request.form['IPAddr'] }}" required>
-    <label for="user">User name:</label>
-    <input type="text" name="user" id="user" value="{{ request.form['user'] }}" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" value="{{ request.form['password'] }}" required>
-    <input type="submit" value="Connect">
-  </form>
 
+    <label for="user" id="userlabel">User name:</label>
+    <input type="text" name="user" id="user" value="{{ request.form['user'] }}" required>
+
+    <label for="password" id="passwordlabel">Password</label>
+    <input type="password" name="password" id="password" value="{{ request.form['password'] }}" required>
+
+    <input type="submit" id="submitbutton" value="Connect">
+  </form>
+<script src="{{ url_for('static', filename='jquery-3.3.1.js') }}"></script>
+<script src="{{ url_for('static', filename='localhostOpt.js') }}"></script>
 {% endblock %}

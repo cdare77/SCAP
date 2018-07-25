@@ -115,9 +115,9 @@ class OVALRequest:
         textfilecontent = self.get_all_elems('textfilecontent')
         
         if file_state and 'id' in file_state[0].properties and 'file_permissions' in file_state[0].properties['id']:
-            tests.append('check_file_permissions')
+            tests.append('local_check_file_permissions')
         if textfilecontent:
-            tests.append('search_for_pattern')
+            tests.append('local_search_for_pattern')
 
         return tests
 

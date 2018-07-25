@@ -22,6 +22,11 @@ class OVALDriver:
     
         self.request = request
         self.parallel = parallel
+        
+        self.IPAddr = IPAddr
+        self.user = user
+        self.password = password
+        
         # Our request must be initialized. This may throw errors;
         # however, we would rather not initialize a driver if there
         # is a faulty request
@@ -30,8 +35,8 @@ class OVALDriver:
 
         # dictionary which matches outputs of requests to functions
         self.test_dictionary = {
-            'check_file_permissions' : self.check_file_permissions(),
-            'search_for_pattern' : self.search_for_pattern()
+            'local_check_file_permissions' : self.local_check_file_permissions(),
+            'local_search_for_pattern' : self.local_search_for_pattern()
         }
 
 
@@ -40,10 +45,15 @@ class OVALDriver:
         return [self.test_dictionary[test] for test in self.request.tests]
 
 
-    def search_for_pattern(self):
+    def local_search_for_pattern(self):
         """ Given a regex pattern provided in the OVAL
             file, we attempt to use that pattern for matching
             in a destination file """
+        
+        # This test is specifically for the local machine
+        if self.IPAddr is not None:
+            return
+        
         pattern = self.request.get_body_content('pattern')
         
         # Do not continue if no pattern is provided
@@ -69,9 +79,14 @@ class OVALDriver:
             raise OVALDriveError("Regex pattern not compatible with Python RegEx 101. Remember not to use inline flags.")
 
 
-    def check_file_permissions(self):
+
+    def local_check_file_permissions(self):
         """ If file permissions are provided, attempt to check
             the destination file for inconsistencies """
+
+        # This test is specifically meant for the local machine
+        if self.IPAddr is not None:
+            return
 
         path = self.request.get_all_files()[0]
         
