@@ -28,9 +28,9 @@
       <div class="flash">{{ message }}</div>
     {% endfor %}
     {% block content %}{% endblock %}
-    {% if g.IPAddr %}
+    {% if g.user %}
         <nav>
-            <h3>{{ g.IPAddr }}</h3>
+            <h3>{{ g.user }}</h3>
             <ul>
                 <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
             </ul>

@@ -4,8 +4,10 @@ Version: 1.0
 """
 
 import sys, stat, os, re, multiprocessing
+
 from oval_request import OVALRequest
 from oval_parser import OVALParser, XMLElement
+from .. import NaServer
 
 
 class OVALDriverError(Exception):
@@ -14,7 +16,7 @@ class OVALDriverError(Exception):
 
 class OVALDriver:
 
-    def __init__(self, request, parallel=False):
+    def __init__(self, request, parallel=False, IPAddr = None, user = None, password=None):
         """ Constructor for driver - iteratively executes all tests found in
             a single file """
     

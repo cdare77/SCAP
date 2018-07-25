@@ -1,14 +1,12 @@
 import functools
 
-import os, time, socket
+import os, time, socket, oval
 
 from flask import (
     send_from_directory, current_app, Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
-
-import oval
 
 from flaskr.db import get_db
 
@@ -17,6 +15,8 @@ from flaskr.db import get_db
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 ALLOWED_EXTENSIONS = set(['xml'])
+
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -77,13 +77,13 @@ def uploaded_file(filename):
                                filename)
 
 @bp.before_app_request
-def load_ip_addr():
-    IPAddr = session.get('IPAddr')
+def load_user():
+    user = session.get('user')
 
-    if IPAddr is None:
-        g.IPAddr = None
+    if user is None:
+        g.user = None
     else:
-        g.IPAddr = IPAddr
+        g.user = user
 
 
 @bp.route('/logout')
