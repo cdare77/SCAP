@@ -1,0 +1,15 @@
+<def-group oval_version="5.11">
+  <definition class="compliance" id="dovecot_enable_ssl" version="1">
+    <metadata>
+      <title>Enable SSL in ONTAP</title>
+      <affected family="unix">
+        <platform>ONTAP</platform>
+      </affected>
+      <description>SSL capabilities should be enabled.</description>
+    </metadata>
+    <criteria comment="Enable SSL in ONTAP" operator="OR">
+      <extend_definition comment="ONTAP service is disabled" definition_ref="service_ontap_disabled" />
+      <criterion test_ref="test_ontap_enable_ssl" />
+    </criteria>
+  </definition>
+</def-group>

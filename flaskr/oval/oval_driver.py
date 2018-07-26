@@ -3,12 +3,12 @@ Author: Chris Dare
 Version: 1.0
 """
 
-import sys, stat, os, re, multiprocessing
+import sys, stat, os, re
 
 from oval_request import OVALRequest
 from oval_parser import OVALParser, XMLElement
 from .. import NaServer
-
+from .. import NaElement
 
 class OVALDriverError(Exception):
     """ Custom exception for the OVAL Driver class """
@@ -16,16 +16,27 @@ class OVALDriverError(Exception):
 
 class OVALDriver:
 
-    def __init__(self, request, parallel=False, IPAddr = None, user = None, password=None):
+    def __init__(self, request, IPAddr = None, user = None, password=None):
         """ Constructor for driver - iteratively executes all tests found in
             a single file """
     
         self.request = request
-        self.parallel = parallel
         
         self.IPAddr = IPAddr
         self.user = user
         self.password = password
+        
+        self.ontap_server = None
+        
+        if self.IPAddr and self.user and self.password:
+            s = NaServer.NaServer(self.IPAddr, 1, 140)
+            s.set_server_type("FILER")
+            s.set_transport_type("HTTPS")
+            s.set_port(443)
+            s.set_style("LOGIN")
+            s.set_admin_user(self.user, self.password)
+            
+            self.ontap_server = s
         
         # Our request must be initialized. This may throw errors;
         # however, we would rather not initialize a driver if there
@@ -36,7 +47,8 @@ class OVALDriver:
         # dictionary which matches outputs of requests to functions
         self.test_dictionary = {
             'local_check_file_permissions' : self.local_check_file_permissions(),
-            'local_search_for_pattern' : self.local_search_for_pattern()
+            'local_search_for_pattern' : self.local_search_for_pattern(),
+            'ontap_ssl_enabled' : self.ontap_ssl_enabled()
         }
 
 
@@ -146,7 +158,33 @@ class OVALDriver:
         else:
             return ("The following permissions are inconsistent for %s: %s" % (path, str(inconsistent)), False)
 
+    def ontap_ssl_enabled(self):
 
+        if not self.ontap_server:
+            raise OVALDriverException("ONTAP driver has not been created.")
+
+        api = NaElement.NaElement("security-ssl-get-iter")
+        xi = NaElement.NaElement("desired-attributes")
+        api.child_add(xi)
+
+        xi1 = NaElement.NaElement("vserver-ssl-info")
+        xi.child_add(xi1)
+
+        xi1.child_add_string("client-authentication-enabled", "<client-authentication-enabled>")
+        xi1.child_add_string("server-authentication-enabled", "<server-authentication-enabled>")
+        api.child_add_string("max-records", "2")
+
+        xi2 = NaElement.NaElement("query")
+        api.child_add(xi2)
+
+        xi3 = NaElement.NaElement("vserver-ssl-info")
+        xi2.child_add(xi3)
+
+        xi3.child_add_string("certificate-authority", "*")
+        api.child_add_string("tag", "<tag>")
+
+        xo = self.ontap_server.invoke_elem(api)
+        print (xo)
 
 # For testing purposes only
 if __name__ == "__main__":

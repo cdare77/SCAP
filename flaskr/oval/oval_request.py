@@ -19,13 +19,14 @@ class OVALRequest:
     which tests should be executed, and sends a ticket to the oval driver
     """
 
-    def __init__(self, parser, local=False):
+    def __init__(self, parser, local=False, verbose=False):
         """ Constructor for OVAL request """
 
         self.initialized = False
         self.dictionary = parser.get_dictionary()
         self.local = local
-        
+        self.verbose = verbose
+
         if not self.dictionary:
             raise OVALDriveError('Cannot create an OVAL Request from an empty dictionary')
 
@@ -43,6 +44,9 @@ class OVALRequest:
             OVAL parser to be initialized before setting attributes
             that could potentially throw errors """
         
+        if self.verbose:
+            print("Initializing request...")
+
         self.title = self.get_body_content('title')
         self.description = self.get_body_content('description')
         self.tests = self.determine_tests()
@@ -76,6 +80,9 @@ class OVALRequest:
         files = self.get_all_elems('filepath') # list to return
         paths = self.get_all_elems('path')
         
+        if self.verbose:
+            print("Cleaning file paths...")
+
         # Since get_body_content only grabs substrings, paths will
         # also grab all content in filepaths (files)
         if files:
@@ -90,6 +97,9 @@ class OVALRequest:
         
         filenames = self.get_all_elems('filename')
         
+        if self.verbose:
+            print("Walking over all subdirectories and files for pattern match...")
+
         ####################################
         #   NEEDS IMPROVEMENT - O(N^4)     #
         ####################################
@@ -112,8 +122,14 @@ class OVALRequest:
         # list of files we will return
         tests = []
 
+        # Get the XMLElements we wish to parse
         file_state = self.get_all_elems('file_state')
         textfilecontent = self.get_all_elems('textfilecontent')
+        platform = self.get_all_elems('platform')
+        description = self.get_all_elems('description')
+
+        if self.verbose: 
+            print("Checking XML body content against known tests...")
         
         if file_state and 'id' in file_state[0].properties and 'file_permissions' in file_state[0].properties['id']:
             if self.local:
@@ -121,6 +137,9 @@ class OVALRequest:
         if textfilecontent:
             if self.local:
                 tests.append('local_search_for_pattern')
+        if platform[0].content  == 'ONTAP' and 'SSL' in description[0].content and 'enable' in description[0].content:
+            if not self.local:
+                tests.append('ontap_ssl_enabled')
 
         return tests
 
@@ -134,9 +153,9 @@ if __name__ == "__main__":
 
     parser = OVALParser()
     parser.parse(filename)
-    print(parser)
+#    print(parser)
 
-    request= OVALRequest(parser)
+    request= OVALRequest(parser, verbose=True)
     request.initialize()
     print("request:", request)
 

@@ -147,7 +147,7 @@ class OVALParser:
             expressions """
 
         # regex searching <... key1="value1" etc>
-        regex = re.search(r"<([\w:_-]+)([\s]+([a-z_]+)=\"([\w\/\s-]+)\")*[\s]*[/]?>", line, re.MULTILINE)
+        regex = re.search(r"<([\w:_-]+)([\s]+([a-z_]+)=\"([\w\/\s\-\.]+)\")*[\s]*[/]?>", line, re.MULTILINE)
         if regex is not None:
             return regex.group(1)
 
@@ -207,7 +207,7 @@ class OVALParser:
             elif opening is not None:
                 # To follow the recursive / stack trend, since we are opening
                 # a new element, we want to push this element onto the stack.
-                # clearl the parent will be the previous (last) element on the
+                # clearly the parent will be the previous (last) element on the
                 # stack
                 elem = XMLElement(opening, properties = self._get_tag_properties(line))
                 try:
@@ -243,6 +243,6 @@ if __name__ == "__main__":
     filename = sys.argv[1]
 
     parser = OVALParser(True)
-    print(parser)
+#    print(parser)
     parser.parse(filename)
     print(parser)
