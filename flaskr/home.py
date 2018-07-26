@@ -8,6 +8,10 @@ import time, socket, ssl
 from flaskr.db import get_db
 
 
+########################################################
+#               GLOBAL VARIABLES                       #
+########################################################
+
 # Attempt to turn off SSL verification for HTTPS since Self-Signed
 # Certificates will cause authentication to fail
 #
@@ -23,39 +27,71 @@ else:
 
 bp = Blueprint('home', __name__)
 
+########################################################
+#                    WEBPAGES                          #
+########################################################
 
 @bp.route('/', methods=('GET', 'POST'))
 def index():
+    """ Method which renders our home page. The primary functionality is handling
+        form request input from the user. We have the option to connect to a
+        remote ontap instance (which is handled by proceed_ontap()) or to 
+        use the local machine for our checks (which is handled by proceed_localhost())
+        """
+
     if request.method == 'POST':
-    
+        # get user info on which end node to run
         endnode = request.form['endnode']
         
+        # handle input
         if endnode == 'localhost':
             return proceed_localhost()
         else:
             return proceed_ontap()
+    
+    # GET
+    return render_template('home/index.html')
 
-    else:
-        return render_template('home/index.html')
 
-
+########################################################
+#                    HELPER METHODS                    #
+########################################################
 
 def proceed_localhost():
-    session.clear()
-    session['user'] = "localhost"
+    """ Method which handles our use case of running checks on
+        a local machine. Since must alreay be logged into a 
+        user, there is no need to grab IPAddr, user, or password
+        info. However, for the sake of clarity, we set the user
+        to localhost since that is displayed in the interface """
 
+    # clear all cookies and set new ones
+    session.clear() 
+    session['user'] = "localhost"
+    session['local'] = True
+    
+    # logging stage
     current_app.logger.info(time.ctime() + '\t continuing as localhost')
 
-    return redirect(url_for('auth.upload'))
+    return redirect(url_for('upload.upload'))
 
 
 
 def proceed_ontap():
+    """ Method which handles our use case of running checks
+        on a remote ONTAP instance. This requires two stages
+        of gathering user input data and checking the validity
+        of such input data. Unlike the proceed_localhost() function,
+        this method if prone to errors (i.e. invalid credentials); we
+        therefore use the flash module to display errors on the
+        client side """
+
+    # grab user input data
     IPAddr = request.form['IPAddr'].encode('ascii', 'ignore')
     user = request.form['user'].encode('ascii','ignore')
     password = request.form['password'].encode('ascii','ignore')
     error = None
 
+    # handle missing information
     if not IPAddr:
         error = 'IP Address is required.'
     if not user:
@@ -69,19 +105,21 @@ def proceed_ontap():
         current_app.logger.info(time.ctime() + '\tFailed login request from {}'.format(socket.gethostbyname(socket.getfqdn())))
 
     if error is not None:
+        # display any errors on the user side
         flash(error)
     else:
-        # update the session
+        # clear all cookies and set new ones
         session.clear()
         session['user'] = user
         session['IPAddr'] = IPAddr
         session['password']= password
+        session['local'] = False
 
+        # logging stage
         current_app.logger.info(time.ctime() + '\t{} successfully connected to {}'.format(socket.gethostbyname(socket.getfqdn()), IPAddr))
-        
         current_app.logger.info(time.ctime() + '\t continuing as ONTAP user {}'.format(user))
         
-        return redirect(url_for('auth.upload'))
+        return redirect(url_for('upload.upload'))
 
 
 def test_login_credentials(IPAddr, user, password):
@@ -101,6 +139,8 @@ def test_login_credentials(IPAddr, user, password):
     s.set_style("LOGIN")
     s.set_admin_user(user, password)
 
+    # send a fake request (i.e. we don't care about the output, 
+    # just whether it works)
     output = s.invoke("system-get-version")
 
     if output.results_errno() != 0:
@@ -108,5 +148,3 @@ def test_login_credentials(IPAddr, user, password):
     else :
 	return True
 
-
-    

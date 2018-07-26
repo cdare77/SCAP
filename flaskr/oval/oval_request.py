@@ -19,11 +19,12 @@ class OVALRequest:
     which tests should be executed, and sends a ticket to the oval driver
     """
 
-    def __init__(self, parser):
+    def __init__(self, parser, local=False):
         """ Constructor for OVAL request """
 
         self.initialized = False
         self.dictionary = parser.get_dictionary()
+        self.local = local
         
         if not self.dictionary:
             raise OVALDriveError('Cannot create an OVAL Request from an empty dictionary')
@@ -115,9 +116,11 @@ class OVALRequest:
         textfilecontent = self.get_all_elems('textfilecontent')
         
         if file_state and 'id' in file_state[0].properties and 'file_permissions' in file_state[0].properties['id']:
-            tests.append('local_check_file_permissions')
+            if self.local:
+                tests.append('local_check_file_permissions')
         if textfilecontent:
-            tests.append('local_search_for_pattern')
+            if self.local:
+                tests.append('local_search_for_pattern')
 
         return tests
 

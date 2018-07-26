@@ -645,3 +645,16 @@ Wed Jul 25 11:06:53 2018	OVAL drivers initialized
 Wed Jul 25 11:06:53 2018	OVAL Result created for SSH Server Private Key Permissions
 Wed Jul 25 11:06:53 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
 Wed Jul 25 11:22:17 2018	 continuing as localhost
+Wed Jul 25 11:49:00 2018	 continuing as localhost
+Wed Jul 25 11:50:16 2018	 continuing as localhost
+Wed Jul 25 11:50:21 2018	10.26.106.117 successfully uploaded file_permissions_sshd_private_key.xml
+Wed Jul 25 11:50:21 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Wed Jul 25 11:50:21 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Thu Jul 26 13:10:57 2018	 continuing as localhost
+Thu Jul 26 13:46:24 2018	 continuing as localhost
+Thu Jul 26 13:46:28 2018	 continuing as localhost
+Thu Jul 26 13:46:51 2018	10.26.106.117 successfully uploaded sshd_disable_compression.xml
+Thu Jul 26 13:46:51 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Thu Jul 26 13:46:51 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Thu Jul 26 13:46:52 2018	OVAL drivers initialized
+Thu Jul 26 13:46:52 2018	OVAL Result created for Disable Compression Or Set Compression to delayed

@@ -47,6 +47,10 @@ def description():
 
         global _drivers
         
+        IPAddr = g.IPAddr
+        password = g.password
+        user = g.user
+        
         _drivers = [oval.OVALDriver( ovalrequest ) for ovalrequest in _requests]
         current_app.logger.info(time.ctime() + "\tOVAL drivers initialized")
         
@@ -58,6 +62,8 @@ def description():
         
         return redirect(url_for('checks.results_overview'))
 
+
+    # GET
     # Calls all the backend code
     _create_descriptions()
     return render_template('checks/description.html', requests=_requests)
@@ -71,15 +77,16 @@ def results_overview():
         tests and pass OVALResults to the HTML. For POST requests, all data
         is cleared and we return to the upload screen """
 
-
     if request.method == "POST":
         # clean out all unwanted storage
         if _pool:
             _pool.terminate()
         del _drivers[:]
         
-        return redirect(url_for('auth.upload'))
+        return redirect(url_for('upload.upload'))
 
+    # GET
+    
     # Captures the global drivers variable
     global _drivers
 
@@ -123,10 +130,17 @@ def _get_description(filename):
         current_app.logger.error(time.ctime() + "\tOVAL Parser could not parse " + filename)
 
     try:
-        ovalrequest = oval.OVALRequest(parser)
+        isLocal = g.local
+        
+        # create an ovalrequest based on our parser and the end node
+        ovalrequest = oval.OVALRequest(parser, isLocal)
         current_app.logger.info(time.ctime() + "\tOVAL Request for %s created" % filename)
+        
+        # attempt to initialize the rewuest
         ovalrequest.initialize()
+        
         return ovalrequest
+
     except OVALRequestError:
         current_app.logger.error(time.ctime() + "\tcould not generate OVAL Request for " + filename)
 
@@ -149,7 +163,7 @@ def _create_descriptions():
     filenames = g.filenames
     processType = g.processType
     coreFactor = g.coreFactor
-
+    
     # ensure no requests persisted from last time
     del _requests[:]
 
@@ -168,6 +182,10 @@ def _create_descriptions():
         for filename in filenames:
             _requests.append(_get_description(filename))
 
+    # We create a pool based off these cookie, so no longer need it
+    _remove_persist_storage("processType")
+    _remove_persist_storage("coreFactor")
+
 
 def _get_num_processors():
     """ Does what the name suggests - returns the number
@@ -185,6 +203,7 @@ def _get_num_processors():
 
 @bp.before_app_request
 def load_process_type():
+    """ Loads processType data from the cookie to local request storage"""
     processType = session.get('processType')
 
     if processType is None:
@@ -194,6 +213,7 @@ def load_process_type():
 
 @bp.before_app_request
 def load_core_factor():
+    """ Loads coreFactor data from the cookie to local request storage"""
     coreFactor = session.get('coreFactor')
 
     if coreFactor is None:
@@ -203,6 +223,7 @@ def load_core_factor():
 
 @bp.before_app_request
 def load_filenames():
+    """ Loads filename data from the cookie to local request storage"""
     filenames = session.get('filenames')
 
     if filenames is None:
@@ -212,9 +233,40 @@ def load_filenames():
 
 @bp.before_app_request
 def load_ip_addr():
+    """ Loads IPAddr data from the cookie to local request storage"""
     IPAddr = session.get('IPAddr')
 
     if IPAddr is None:
         g.IPAddr = None
     else:
         g.IPAddr = IPAddr
+
+@bp.before_app_request
+def load_user():
+    """ Loads user data from the cookie to local request storage"""
+    user = session.get('user')
+
+    if user is None:
+        g.user = None
+    else:
+        g.user = user
+
+@bp.before_app_request
+def load_password():
+    """ Loads password data from the cookie to local request storage"""
+    password = session.get('password')
+
+    if password is None:
+        g.password = None
+    else:
+        g.password = password
+
+@bp.before_app_request
+def load_local():
+    """ Loads local (boolean) data from the cookie to local (scope) request storage"""
+    local = session.get('local')
+
+    if local is None:
+        g.local = None
+    else:
+        g.local = local
