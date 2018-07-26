@@ -13,7 +13,9 @@ In order to run SCAP for ONTAP, Python must be installed on the machine executin
 pip install Flask
 pip install flask-bootstrap
 ```
-if the reader is further interested in how Flask works, refer to the [Flask Website](http://flask.pocoo.org/). A script `SCAP.sh` is provided to set all the environment variables required for Flask. Refer to standard output to find which port the application is running on - it is typically 5000 for development purposes. The IP address is always `localhost`.
+if the reader is further interested in how Flask works, refer to the [Flask Website](http://flask.pocoo.org/).
+
+A script `SCAP.sh` is provided to set all the environment variables required for Flask. Refer to standard output to find which port the application is running on - it is typically 5000 for development purposes. The IP address is always `localhost`.
 
 ## 3. Description of Program
 As previously mentioned, the majority of the server-side code is handled via the Flask library. Since Flask also supports Jinja 2.0, all html pages are written in Jinja format. Additionally, since the program utilizes flask-bootstrap, our base.html is actually an extension of  `bootstrap/base.html`. 
