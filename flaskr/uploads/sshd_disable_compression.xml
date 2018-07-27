@@ -24,7 +24,7 @@
   </ind:textfilecontent54_test>
   <ind:textfilecontent54_object id="obj_sshd_disable_compression" version="1">
     <ind:filepath>/etc/ssh/sshd_config</ind:filepath>
-    <ind:pattern operation="pattern match">^[\s]*Compression[\s]+(no|delayed)[\s]*(?:|(?:#.*))?$</ind:pattern>
+    <ind:pattern operation="pattern match">^[\s]*Compression[\s]+(no|delayed)$</ind:pattern>
     <ind:instance datatype="int">1</ind:instance>
   </ind:textfilecontent54_object>
 </def-group>

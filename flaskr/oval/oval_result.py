@@ -3,9 +3,14 @@ Author: Chris Dare
 Version: 1.0
 """
 
-
+########################################################
+#                      CLASSES                         #
+########################################################
 
 class OVALResult:
+    """ Very simple class which simply allows us to gather
+        the information of our driver and put it together
+        in a neat format """
 
     def __init__(self, title, outputs):
         self.title = title
@@ -13,6 +18,7 @@ class OVALResult:
         self.passed = True
 
         for output in outputs:
+            # unpack each tuple from _execute_tests
             description, status = output
             self.passed &= status
             self.descriptions.append(description)
@@ -21,6 +27,12 @@ class OVALResult:
     def __repr__(self):
         return self.title + ": " + str(self.passed) 
 
+
+########################################################
+#                      TESTING                         #
+########################################################
+
+# For testing purposes only
 if __name__ == "__main__":
     
     from oval_request import OVALRequest

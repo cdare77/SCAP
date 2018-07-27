@@ -8,10 +8,18 @@ import sys, re, os, time
 from flask import (current_app, flash)
 
 
+########################################################
+#                     EXCEPTIONS                       #
+########################################################
+
 class OVALRequestError(Exception):
     """ Custom exception for this module """
     pass
 
+
+########################################################
+#                      CLASSES                         #
+########################################################
 
 class OVALRequest:
     """
@@ -19,8 +27,10 @@ class OVALRequest:
     which tests should be executed, and sends a ticket to the oval driver
     """
 
-    def __init__(self, parser, local=False, verbose=False):
-        """ Constructor for OVAL request """
+    def __init__(self, parser, local=True, verbose=False):
+        """ Constructor for OVAL request. By default, we want
+            to run tests on the local machine and don't want
+            output"""
 
         self.initialized = False
         self.dictionary = parser.get_dictionary()
@@ -49,11 +59,11 @@ class OVALRequest:
 
         self.title = self.get_body_content('title')
         self.description = self.get_body_content('description')
-        self.tests = self.determine_tests()
+        self.tests = self._determine_tests()
         self.initialized = True
         
 
-    def get_all_elems(self, substring):
+    def _get_all_elems(self, substring):
         """ Helper function to find all XML tag elements
             whose key contains a given substring """
         return [value for key, value in self.dictionary.items() if substring in key.lower()]
@@ -62,7 +72,7 @@ class OVALRequest:
         """ helper function to find the first XML tag whose
             name contains the given substring """
         
-        array = self.get_all_elems(substring)
+        array = self._get_all_elems(substring)
         
         if array:
             # return the first occurrence
@@ -77,8 +87,8 @@ class OVALRequest:
             is a Regular Expression (RegEx)
         """
     
-        files = self.get_all_elems('filepath') # list to return
-        paths = self.get_all_elems('path')
+        files = self._get_all_elems('filepath') # list to return
+        paths = self._get_all_elems('path')
         
         if self.verbose:
             print("Cleaning file paths...")
@@ -95,7 +105,7 @@ class OVALRequest:
         if not paths:
             return [file.content for file in files]
         
-        filenames = self.get_all_elems('filename')
+        filenames = self._get_all_elems('filename')
         
         if self.verbose:
             print("Walking over all subdirectories and files for pattern match...")
@@ -115,7 +125,7 @@ class OVALRequest:
         return files
 
 
-    def determine_tests(self):
+    def _determine_tests(self):
         """ helper method to examine the xml tags and evaluate
             which tests to run"""
     
@@ -123,10 +133,10 @@ class OVALRequest:
         tests = []
 
         # Get the XMLElements we wish to parse
-        file_state = self.get_all_elems('file_state')
-        textfilecontent = self.get_all_elems('textfilecontent')
-        platform = self.get_all_elems('platform')
-        description = self.get_all_elems('description')
+        file_state = self._get_all_elems('file_state')
+        textfilecontent = self._get_all_elems('textfilecontent')
+        platform = self._get_all_elems('platform')
+        description = self._get_all_elems('description')
 
         if self.verbose: 
             print("Checking XML body content against known tests...")
@@ -143,6 +153,11 @@ class OVALRequest:
 
         return tests
 
+
+########################################################
+#                      TESTING                         #
+########################################################
+
 # For testing purposes only
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -153,9 +168,8 @@ if __name__ == "__main__":
 
     parser = OVALParser()
     parser.parse(filename)
-#    print(parser)
 
-    request= OVALRequest(parser, verbose=True)
+    request= OVALRequest(parser, local=True, verbose=True)
     request.initialize()
     print("request:", request)
 

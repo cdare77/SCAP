@@ -658,3 +658,41 @@ Thu Jul 26 13:46:51 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Pyth
 Thu Jul 26 13:46:51 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
 Thu Jul 26 13:46:52 2018	OVAL drivers initialized
 Thu Jul 26 13:46:52 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Fri Jul 27 15:10:10 2018	 continuing as localhost
+Fri Jul 27 15:10:33 2018	169.254.68.139 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 27 15:10:33 2018	169.254.68.139 successfully uploaded sshd_disable_compression.xml
+Fri Jul 27 15:10:33 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Fri Jul 27 15:10:33 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Fri Jul 27 15:10:33 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Fri Jul 27 15:10:33 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Fri Jul 27 15:10:35 2018	OVAL drivers initialized
+Fri Jul 27 15:10:35 2018	OVAL Result created for SSH Server Private Key Permissions
+Fri Jul 27 15:10:35 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Fri Jul 27 15:10:47 2018	 continuing as localhost
+Fri Jul 27 15:12:01 2018	169.254.68.139 successfully uploaded sshd_disable_compression.xml
+Fri Jul 27 15:12:01 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Fri Jul 27 15:12:01 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Fri Jul 27 15:12:02 2018	OVAL drivers initialized
+Fri Jul 27 15:12:02 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Fri Jul 27 15:38:39 2018	 continuing as localhost
+Fri Jul 27 15:38:50 2018	172.20.10.3 successfully uploaded file_permissions_sshd_private_key.xml
+Fri Jul 27 15:38:50 2018	172.20.10.3 successfully uploaded sshd_disable_compression.xml
+Fri Jul 27 15:38:50 2018	Process pool with 8 processes initialized for descriptions
+Fri Jul 27 15:38:50 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Fri Jul 27 15:38:50 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Fri Jul 27 15:38:50 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Fri Jul 27 15:38:50 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
+Fri Jul 27 15:38:51 2018	OVAL drivers initialized
+Fri Jul 27 15:38:51 2018	OVAL Result created for SSH Server Private Key Permissions
+Fri Jul 27 15:38:51 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Fri Jul 27 15:39:23 2018	172.20.10.3 successfully uploaded ontap_enable_ssl.xml
+Fri Jul 27 15:39:23 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/ontap_enable_ssl.xml initialized
+Fri Jul 27 15:39:23 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/ontap_enable_ssl.xml created
+Fri Jul 27 15:39:24 2018	OVAL drivers initialized
+Fri Jul 27 15:39:24 2018	OVAL Result created for Enable SSL in ONTAP
+Fri Jul 27 15:39:50 2018	 continuing as localhost
+Fri Jul 27 15:39:54 2018	172.20.10.3 successfully uploaded ontap_enable_ssl.xml
+Fri Jul 27 15:39:54 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/ontap_enable_ssl.xml initialized
+Fri Jul 27 15:39:54 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/ontap_enable_ssl.xml created
+Fri Jul 27 15:39:58 2018	OVAL drivers initialized
+Fri Jul 27 15:39:58 2018	OVAL Result created for Enable SSL in ONTAP

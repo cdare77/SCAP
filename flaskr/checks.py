@@ -50,7 +50,7 @@ def description():
         password = g.password
         user = g.user
         
-        _drivers = [oval.OVALDriver( ovalrequest ) for ovalrequest in _requests]
+        _drivers = [oval.OVALDriver( ovalrequest, IPAddr=IPAddr, user=user, password=password, verbose=False ) for ovalrequest in _requests]
         current_app.logger.info(time.ctime() + "\tOVAL drivers initialized")
         
         # we have handled the requests so we no longer need them
@@ -132,7 +132,7 @@ def _get_description(filename):
         isLocal = g.local
         
         # create an ovalrequest based on our parser and the end node
-        ovalrequest = oval.OVALRequest(parser, isLocal)
+        ovalrequest = oval.OVALRequest(parser, local=isLocal)
         current_app.logger.info(time.ctime() + "\tOVAL Request for %s created" % filename)
         
         # attempt to initialize the rewuest
@@ -196,12 +196,14 @@ def _get_num_processors():
         cores = cpu_count()
     return cores
 
+
+
 ########################################################
 #                    COOKIE METHODS                    #
 ########################################################
 
 @bp.before_app_request
-def load_process_type():
+def _load_process_type():
     """ Loads processType data from the cookie to local request storage"""
     processType = session.get('processType')
 
@@ -211,7 +213,7 @@ def load_process_type():
         g.processType = processType
 
 @bp.before_app_request
-def load_core_factor():
+def _load_core_factor():
     """ Loads coreFactor data from the cookie to local request storage"""
     coreFactor = session.get('coreFactor')
 
@@ -221,7 +223,7 @@ def load_core_factor():
         g.coreFactor = coreFactor
 
 @bp.before_app_request
-def load_filenames():
+def _load_filenames():
     """ Loads filename data from the cookie to local request storage"""
     filenames = session.get('filenames')
 
@@ -231,7 +233,7 @@ def load_filenames():
         g.filenames = filenames
 
 @bp.before_app_request
-def load_ip_addr():
+def _load_ip_addr():
     """ Loads IPAddr data from the cookie to local request storage"""
     IPAddr = session.get('IPAddr')
 
@@ -241,7 +243,7 @@ def load_ip_addr():
         g.IPAddr = IPAddr
 
 @bp.before_app_request
-def load_user():
+def _load_user():
     """ Loads user data from the cookie to local request storage"""
     user = session.get('user')
 
@@ -251,7 +253,7 @@ def load_user():
         g.user = user
 
 @bp.before_app_request
-def load_password():
+def _load_password():
     """ Loads password data from the cookie to local request storage"""
     password = session.get('password')
 
@@ -261,7 +263,7 @@ def load_password():
         g.password = password
 
 @bp.before_app_request
-def load_local():
+def _load_local():
     """ Loads local (boolean) data from the cookie to local (scope) request storage"""
     local = session.get('local')
 

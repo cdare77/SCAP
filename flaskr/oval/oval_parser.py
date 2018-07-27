@@ -7,6 +7,19 @@ from flask import (current_app, flash)
 from collections import deque
 import sys, re, time
 
+########################################################
+#                     EXCEPTIONS                       #
+########################################################
+
+class OVALParseError(Exception):
+    """ Custom exception for this module """
+    pass
+
+
+########################################################
+#                      CLASSES                         #
+########################################################
+
 class XMLElement:
     """
     Class which represents a single XML element.
@@ -50,14 +63,7 @@ class XMLElement:
         for child in self.children:
             my_str += child.print_subtree_r(height + 1)
         return my_str
-        
-
-
-class OVALParseError(Exception):
-    """ Custom exception for this module """
-    pass
-    
-
+            
 
 class OVALParser:
     """
@@ -234,6 +240,11 @@ class OVALParser:
             raise OVALParseError("Missing closing tag for " + tagStack[-1].element_name)
 
 
+
+########################################################
+#                      TESTING                         #
+########################################################
+
 # For testing purposes only
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -242,7 +253,6 @@ if __name__ == "__main__":
 
     filename = sys.argv[1]
 
-    parser = OVALParser(True)
-#    print(parser)
+    parser = OVALParser(verbose=True)
     parser.parse(filename)
     print(parser)
