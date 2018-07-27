@@ -183,8 +183,12 @@ class OVALDriver:
         xi3.child_add_string("certificate-authority", "*")
         api.child_add_string("tag", "<tag>")
 
-        xo = self.ontap_server.invoke_elem(api)
-        print (xo)
+        out = self.ontap_server.invoke_elem(api)
+        
+        if out.results_status() == "failed":
+            pass
+        
+        print (out.child_get_string("server-authentication-enabled"))
 
 # For testing purposes only
 if __name__ == "__main__":

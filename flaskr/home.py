@@ -134,9 +134,19 @@ def test_login_credentials(IPAddr, user, password):
     # Create a server at our specified address
     s = NaServer(IPAddr, 1 , 140)
     s.set_server_type("FILER")
-    s.set_transport_type("HTTPS")
+    
+    # check if HTTPS can be set up properly
+    response = s.set_transport_type("HTTPS")
+    if response and response.results_errno() != 0:
+        reason = response.results_reason()
+        current_app.logger.info(time.ctime() + '\tONTAP node {} unable to set HTTPS transport {}'.format(IPAddr, reason))
+    
     s.set_port(443)
-    s.set_style("LOGIN")
+    # check if authentication can be set up properly
+    response = s.set_style("LOGIN")
+    if response and response.results_errno() != 0:
+        reason = response.results_reason()
+        current_app.logger.info(time.ctime() + '\tONTAP node {} unable to set authenticatino style {}'.format(IPAddr, reason))
     s.set_admin_user(user, password)
 
     # send a fake request (i.e. we don't care about the output, 
@@ -144,7 +154,7 @@ def test_login_credentials(IPAddr, user, password):
     output = s.invoke("system-get-version")
 
     if output.results_errno() != 0:
-	return False
+        return False
     else :
-	return True
+	    return True
 
