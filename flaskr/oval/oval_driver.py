@@ -3,12 +3,29 @@ Author: Chris Dare
 Version: 1.0
 """
 
-import sys, stat, os, re
+import sys, stat, os, re, ssl
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from NetApp import (NaServer, NaElement)
 
 from oval_request import OVALRequest
 from oval_parser import OVALParser, XMLElement
-from .. import NaServer
-from .. import NaElement
+
+
+
+# Attempt to turn off SSL verification for HTTPS since Self-Signed
+# Certificates will cause authentication to fail
+#
+# NOTE: This is a Catch-22, in that it violates SCAP procedure. Clearly
+#       this needs to be updated in later versions.
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
 
 class OVALDriverError(Exception):
     """ Custom exception for the OVAL Driver class """
@@ -29,7 +46,7 @@ class OVALDriver:
         self.ontap_server = None
         
         if self.IPAddr and self.user and self.password:
-            s = NaServer.NaServer(self.IPAddr, 1, 140)
+            s = NaServer(self.IPAddr, 1, 140)
             s.set_server_type("FILER")
             s.set_transport_type("HTTPS")
             s.set_port(443)
@@ -163,25 +180,25 @@ class OVALDriver:
         if not self.ontap_server:
             raise OVALDriverException("ONTAP driver has not been created.")
 
-        api = NaElement.NaElement("security-ssl-get-iter")
-        xi = NaElement.NaElement("desired-attributes")
+        api = NaElement("security-ssl-get-iter")
+        xi = NaElement("desired-attributes")
         api.child_add(xi)
 
-        xi1 = NaElement.NaElement("vserver-ssl-info")
+        xi1 = NaElement("vserver-ssl-info")
         xi.child_add(xi1)
 
         xi1.child_add_string("client-authentication-enabled", "<client-authentication-enabled>")
         xi1.child_add_string("server-authentication-enabled", "<server-authentication-enabled>")
         api.child_add_string("max-records", "2")
 
-        xi2 = NaElement.NaElement("query")
+        xi2 = NaElement("query")
         api.child_add(xi2)
 
-        xi3 = NaElement.NaElement("vserver-ssl-info")
+        xi3 = NaElement("vserver-ssl-info")
         xi2.child_add(xi3)
 
         xi3.child_add_string("certificate-authority", "*")
-        api.child_add_string("tag", "<tag>")
+        api.child_add_string("tag", "")
 
         out = self.ontap_server.invoke_elem(api)
         
@@ -191,12 +208,11 @@ class OVALDriver:
         print (out.child_get_string("server-authentication-enabled"))
 
 # For testing purposes only
-if __name__ == "__main__":
+if __name__ == "__main__" and __package__ is None:
+
     if len(sys.argv) < 2:
         print("\n\tUsage: python oval_driver.py [file]\n")
         sys.exit()
-
-    print("Num processors:", get_num_processors())
 
     filename = sys.argv[1]
 
@@ -204,9 +220,9 @@ if __name__ == "__main__":
     parser.parse(filename)
     print(parser)
 
-    request = OVALRequest(parser)
+    request = OVALRequest(parser, local=False)
     request.initialize()
     print("request:", request)
 
-    driver = OVALDriver(request)
+    driver = OVALDriver(request, IPAddr="192.168.1.210", user="admin", password="netapp123")
     print(driver.execute_tests())
