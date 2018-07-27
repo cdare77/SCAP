@@ -201,11 +201,25 @@ class OVALDriver:
         api.child_add_string("tag", "")
 
         out = self.ontap_server.invoke_elem(api)
+
+        if out.results_status() == "failed": 
+            reason = out.results_reason()
+	    raise OVALDriverError("ONTAP driver error " + reason)
         
-        if out.results_status() == "failed":
-            pass
-        
-        print (out.child_get_string("server-authentication-enabled"))
+	attr_list = out.child_get("attributes-list")
+	vserver_ssl_info = attr_list.child_get("vserver-ssl-info")
+	print (vserver_ssl_info.sprintf())
+	
+        server_auth_enabled = vserver_ssl_info.child_get_string("server-authentication-enabled")
+	client_auth_enabled = vserver_ssl_info.child_get_string("client-authentication-enabled")	
+	if server_auth_enabled != "true":
+	    return ("Server SSL authentication is not enabled", False)
+	elif client_auth_enabled != "true":
+	    return ("Client SSL authentication is not enabled", False)
+	else:
+	    return ("Both client and server SSL passed", True)
+
+
 
 # For testing purposes only
 if __name__ == "__main__" and __package__ is None:
@@ -225,4 +239,4 @@ if __name__ == "__main__" and __package__ is None:
     print("request:", request)
 
     driver = OVALDriver(request, IPAddr="192.168.1.210", user="admin", password="netapp123")
-    print(driver.execute_tests())
+    print("Test results:", driver.execute_tests())
