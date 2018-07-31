@@ -1,5 +1,5 @@
 import functools, os, time, oval
-from AES import *
+import AES
 from multiprocessing import Pool, cpu_count
 
 from flask import (
@@ -50,9 +50,9 @@ def description():
 
         # All sensitive data in the session must be encrypted
         AESKey = [ord(elem) for elem in current_app.config['SECRET_KEY']]
-        AES = AESEncryptor(key=AESKey)
+        myAES = AES.AESEncryptor(key=AESKey)
 
-        password = AES.decrypt(g.password)
+        password = myAES.decrypt(g.password)
         user = g.user
         
         _drivers = [oval.OVALDriver( ovalrequest, IPAddr=IPAddr, user=user, password=password, verbose=False ) for ovalrequest in _requests]

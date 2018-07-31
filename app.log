@@ -706,3 +706,16 @@ Mon Jul 30 14:22:32 2018	OVAL Request for /Users/Chris/Documents/Source Code/Pyt
 Mon Jul 30 14:22:33 2018	OVAL drivers initialized
 Mon Jul 30 14:22:33 2018	OVAL Result created for SSH Server Private Key Permissions
 Mon Jul 30 14:22:33 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Tue Jul 31 13:11:22 2018	Failed login request from 192.168.1.49
+Tue Jul 31 13:12:14 2018	192.168.1.49 successfully connected to 192.168.1.210
+Tue Jul 31 13:12:14 2018	 continuing as ONTAP user admin
+Tue Jul 31 13:12:26 2018	192.168.1.49 successfully uploaded ontap_enable_ssl.xml
+Tue Jul 31 13:12:26 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_enable_ssl.xml initialized
+Tue Jul 31 13:12:26 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_enable_ssl.xml created
+Tue Jul 31 13:13:41 2018	192.168.1.49 successfully connected to 192.168.1.210
+Tue Jul 31 13:13:41 2018	 continuing as ONTAP user admin
+Tue Jul 31 13:13:46 2018	192.168.1.49 successfully uploaded ontap_enable_ssl.xml
+Tue Jul 31 13:13:46 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_enable_ssl.xml initialized
+Tue Jul 31 13:13:46 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_enable_ssl.xml created
+Tue Jul 31 13:13:48 2018	OVAL drivers initialized
+Tue Jul 31 13:13:48 2018	OVAL Result created for Enable SSL in ONTAP

@@ -1,5 +1,5 @@
 from NetApp import *
-from AES import *
+import AES
 from flask import (
     Blueprint, flash, g, session, redirect, render_template, request, url_for, current_app
 )
@@ -115,9 +115,9 @@ def proceed_ontap():
 
         # All sensitive data in the session must be encrypted
         AESKey = [ord(elem) for elem in current_app.config['SECRET_KEY']]
-        AES = AESEncryptor(key=AESKey)        
+        myAES = AES.AESEncryptor(key=AESKey)        
 
-        session['password'] = AES.encrypt(password)
+        session['password'] = myAES.encrypt(password)
         session['local'] = False
 
         # logging stage
