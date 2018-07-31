@@ -1,5 +1,5 @@
 from NetApp import *
-
+from AES import *
 from flask import (
     Blueprint, flash, g, session, redirect, render_template, request, url_for, current_app
 )
@@ -112,7 +112,12 @@ def proceed_ontap():
         session.clear()
         session['user'] = user
         session['IPAddr'] = IPAddr
-        session['password']= password
+
+        # All sensitive data in the session must be encrypted
+        AESKey = [ord(elem) for elem in current_app.config['SECRET_KEY']]
+        AES = AESEncryptor(key=AESKey)        
+
+        session['password'] = AES.encrypt(password)
         session['local'] = False
 
         # logging stage
@@ -156,5 +161,5 @@ def test_login_credentials(IPAddr, user, password):
     if output.results_errno() != 0:
         return False
     else :
-	    return True
+	return True
 
