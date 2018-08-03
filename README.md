@@ -1,14 +1,14 @@
 # SCAP for ONTAP
 
 ## 1. Overview
-The SCAP for ONTAP project is an application meant to be run on <html>*NIX</html> or NetApp systems which checks the state of the specified machine for Security Content Automation Protocol (SCAP) compatibility. The application renders input from OVAL files, which are provided after successfuly connection. For easy usability, the application is executed on a Flask server so that all user interaction can be done via a web browser. Certain scripts can be run independently from the command line - such scripts can distinguish by  
+The SCAP for ONTAP project is a server-based application written in Python to check <html>*NIX</html> or NetApp ONTAP<html>&copy;</html>  systems. SCAP for ONTAP checks the state of the specified machine for Security Content Automation Protocol (SCAP) compatibility, which is often required for FISMA compliance. After successful connection, the user is able to upload OVAL files which are later rendered and executed. For ease of usability, the application is executed on a Flask server so that all user interaction can be done via a web browser. Certain Python scripts can be run independently from the command line (for testing purposes) - such scripts can distinguish by  
 ```
 if __name__ == "__main__":
 ```
-blocks towards the bottom of the script (which should be fimiliar to any Python developers).
+blocks towards the bottom of the script.
 
 ## 2. How to Use
-In order to run SCAP for ONTAP, Python must be installed on the machine executing it. In addition, `pip` must be installed to support `Flask` and  `flask-bootstrap` . To install the two libraries, simply run
+In order to run SCAP for ONTAP, Python must be installed. In addition, `pip` is required to install the `Flask` and  `flask-bootstrap` libraries. To install the two libraries, simply run
 ```
 pip install Flask
 pip install flask-bootstrap
@@ -49,3 +49,4 @@ timestamp message
 ## 5. Future Plans
 - Find efficient way to transport data between Python scripts besides setting cookies in session[] or g.
 - Providing an entire SCAP directory at the upload stage complete with XCCDF schemas, CPE files, on top of the current OVAL files.
+- SCAP.exe for Windows users (i.e. Windows compatability)
