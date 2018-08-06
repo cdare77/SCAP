@@ -19,9 +19,11 @@ class OVALResult:
 
         for output in outputs:
             # unpack each tuple from _execute_tests
-            description, status = output
+            descriptionList, status = output
             self.passed &= status
-            self.descriptions.append(description)
+	    # a single result may have multiple lines
+	    for description in descriptionList:
+            	self.descriptions.append(description)
 
 
     def __repr__(self):

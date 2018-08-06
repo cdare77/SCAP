@@ -775,3 +775,44 @@ Mon Aug  6 11:57:55 2018	OVAL Request for /Users/Chris/Documents/Source Code/Pyt
 Mon Aug  6 11:57:58 2018	OVAL drivers initialized
 Mon Aug  6 11:57:58 2018	OVAL Result created for SSH Server Private Key Permissions
 Mon Aug  6 11:57:58 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Mon Aug  6 14:50:50 2018	192.168.1.49 successfully connected to 192.168.1.210
+Mon Aug  6 14:50:50 2018	 continuing as ONTAP user admin
+Mon Aug  6 14:51:10 2018	192.168.1.49 successfully uploaded ontap_volumes_encrypted.xml
+Mon Aug  6 14:51:10 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml initialized
+Mon Aug  6 14:51:10 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml created
+Mon Aug  6 14:51:12 2018	OVAL drivers initialized
+Mon Aug  6 14:51:12 2018	OVAL Result created for Encrypt Volumes in ONTAP
+Mon Aug  6 14:51:38 2018	192.168.1.49 successfully connected to 192.168.1.210
+Mon Aug  6 14:51:38 2018	 continuing as ONTAP user admin
+Mon Aug  6 14:51:52 2018	192.168.1.49 successfully uploaded ontap_volumes_encrypted.xml
+Mon Aug  6 14:51:52 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml initialized
+Mon Aug  6 14:51:52 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml created
+Mon Aug  6 14:51:54 2018	OVAL drivers initialized
+Mon Aug  6 14:51:55 2018	OVAL Result created for Encrypt Volumes in ONTAP
+Mon Aug  6 15:01:21 2018	192.168.1.49 successfully connected to 192.168.1.210
+Mon Aug  6 15:01:21 2018	 continuing as ONTAP user admin
+Mon Aug  6 15:01:28 2018	192.168.1.49 successfully uploaded ontap_volumes_encrypted.xml
+Mon Aug  6 15:01:28 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml initialized
+Mon Aug  6 15:01:28 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml created
+Mon Aug  6 15:01:29 2018	OVAL drivers initialized
+Mon Aug  6 15:01:29 2018	OVAL Result created for Encrypt Volumes in ONTAP
+Mon Aug  6 15:07:18 2018	192.168.1.49 successfully connected to 192.168.1.210
+Mon Aug  6 15:07:18 2018	 continuing as ONTAP user admin
+Mon Aug  6 15:07:27 2018	192.168.1.49 successfully uploaded ontap_volumes_encrypted.xml
+Mon Aug  6 15:07:27 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml initialized
+Mon Aug  6 15:07:27 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml created
+Mon Aug  6 15:07:28 2018	OVAL drivers initialized
+Mon Aug  6 15:07:28 2018	OVAL Result created for Encrypt Volumes in ONTAP
+Mon Aug  6 15:11:30 2018	192.168.1.49 successfully connected to 192.168.1.210
+Mon Aug  6 15:11:30 2018	 continuing as ONTAP user admin
+Mon Aug  6 15:11:36 2018	192.168.1.49 successfully uploaded ontap_enable_ssl.xml
+Mon Aug  6 15:11:36 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_enable_ssl.xml initialized
+Mon Aug  6 15:11:36 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_enable_ssl.xml created
+Mon Aug  6 15:11:38 2018	OVAL drivers initialized
+Mon Aug  6 15:11:38 2018	OVAL Result created for Enable SSL in ONTAP
+Mon Aug  6 15:15:13 2018	 continuing as localhost
+Mon Aug  6 15:15:18 2018	192.168.1.49 successfully uploaded file_permissions_sshd_private_key.xml
+Mon Aug  6 15:15:18 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Mon Aug  6 15:15:18 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Mon Aug  6 15:15:19 2018	OVAL drivers initialized
+Mon Aug  6 15:15:19 2018	OVAL Result created for SSH Server Private Key Permissions

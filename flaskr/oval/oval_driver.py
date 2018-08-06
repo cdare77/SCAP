@@ -134,9 +134,9 @@ class OVALDriver:
             print(result)
             
             if not result:
-                return ("Pattern inconsistent or not found in %s" % path, False)
+                return (["Pattern inconsistent or not found in %s" % path], False)
             else:
-                return ("%s is consistent" % path, True)
+                return (["%s is consistent" % path], True)
         except:
             # pcre (php) regex will fail in python
             raise OVALDriverError("Regex pattern not compatible with Python RegEx 101. Remember not to use inline flags.")
@@ -211,9 +211,10 @@ class OVALDriver:
             inconsistent. append("oread")
 
         if not inconsistent:
-            return ("File permissions are consistent for %s" % path, True)
+            return (["File permissions are consistent for %s" % path], True)
         else:
-            return ("The following permissions are inconsistent for %s: %s" % (path, str(inconsistent)), False)
+	    message = ["The following permission is inconsistent for %s: %s" % (path, incos) for incos in inconsistent]
+            return (message, False)
 
 
     ###########################
@@ -271,12 +272,14 @@ class OVALDriver:
 	client_auth_enabled = vserver_ssl_info.child_get_string("client-authentication-enabled")
  
         # return formatted output to OVALResponse
+	if server_auth_enabled != "true" and client_auth_enabled != "true":
+	    return (["Server SSL authentication is not enabled", "Client SSL authentication is not enabled"], False)
 	if server_auth_enabled != "true":
-	    return ("Server SSL authentication is not enabled", False)
+	    return (["Server SSL authentication is not enabled", "Client SSL authentication passed"], False)
 	elif client_auth_enabled != "true":
-	    return ("Client SSL authentication is not enabled", False)
+	    return (["Client SSL authentication is not enabled", "Server SSL authentication passed"], False)
 	else:
-	    return ("Both client and server SSL passed", True)
+	    return (["Client SSL authentication passed", "Server SSL authentication passed"], True)
 
 
 
@@ -303,6 +306,7 @@ class OVALDriver:
         # Variables which hold our return status
         allVolsEncrypted = True
         conflictingVolsList = []
+	encryptedVolsList = []
 
         attr_list = out.child_get("attributes-list")
         # since there may be more than one child (volume), we
@@ -317,14 +321,18 @@ class OVALDriver:
 
             if isEncrypted == "false":
                 # We have found a bad egg
-                allVolsEncrypted &= False
+		if vol_name != "vol0":
+                    allVolsEncrypted &= False
                 conflictingVolsList.append(vol_name)
+	    else:
+		encryptedVolsList.append(vol_name)
+
 
         # return the results in the form (message, passed) to OVALResponse
         if allVolsEncrypted:
-            return ("All volumes properly encrypted", True)
+            return (["All volumes properly encrypted"], True)
         else:
-            return ("The following volumes are not encrypted:\t" + str(conflictingVolsList), False)
+            return (["The following volumes are encrypted:\t" + str(encryptedVolsList), "The following volumes are not encrypted:\t" + str(conflictingVolsList)], False)
 
 ########################################################
 #                      TESTING                         #
