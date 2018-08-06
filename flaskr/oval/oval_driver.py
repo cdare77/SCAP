@@ -126,12 +126,9 @@ class OVALDriver:
         if raw_pattern[0] is '^' and raw_pattern[-1] is '$':
             flags = re.MULTILINE
 
-        try:
-            print(raw_pattern)
+        try: 
             regex = re.compile(raw_pattern, re.MULTILINE)
-            result = regex.findall(my_file)
-
-            print(result)
+            result = regex.findall(my_file) 
             
             if not result:
                 return (["Pattern inconsistent or not found in %s" % path], False)
