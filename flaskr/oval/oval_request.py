@@ -150,6 +150,9 @@ class OVALRequest:
         if platform[0].content  == 'ONTAP' and 'SSL' in description[0].content and 'enable' in description[0].content:
             if not self.local:
                 tests.append('ontap_ssl_enabled')
+        if platform[0].content == 'ONTAP' and 'encrypt' in description[0].content and 'volume' in description[0].content:
+            if not self.local:
+                tests.append('ontap_vols_encrypted')
 
         return tests
 

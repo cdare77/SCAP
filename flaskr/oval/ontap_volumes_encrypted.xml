@@ -1,0 +1,16 @@
+<def-group oval_version="5.11">
+  <definition class="compliance" id="dovecot_enable_ssl" version="1">
+    <metadata>
+      <title>Encrypt Volumes in ONTAP</title>
+      <affected family="unix">
+        <platform>ONTAP</platform>
+      </affected>
+      <description>ONTAP volumes should be encrypted.</description>
+    </metadata>
+    <criteria comment="Encrypt Volumes in ONTAP" operator="OR">
+      <extend_definition comment="ONTAP service is disabled" definition_ref="service_ontap_disabled" />
+      <criterion test_ref="test_ontap_vols_encrypted" />
+    </criteria>
+  </definition>
+</def-group>
+

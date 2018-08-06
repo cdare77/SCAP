@@ -77,7 +77,8 @@ class OVALDriver:
         self.test_dictionary = {
             'local_check_file_permissions' : self._local_check_file_permissions,
             'local_search_for_pattern' : self._local_search_for_pattern,
-            'ontap_ssl_enabled' : self._ontap_ssl_enabled
+            'ontap_ssl_enabled' : self._ontap_ssl_enabled,
+            'ontap_vols_encrypted' : self._ontap_vols_encrypted
         }
 
 
@@ -279,6 +280,51 @@ class OVALDriver:
 
 
 
+    def _ontap_vols_encrypted(self):
+        """ Assuming an IP address, username, and password are provided
+            to the ONTAP instance, we attempt to retrieve volume encryption
+            status of each active volume. This test only passes if all
+            volumes are encrypted """
+        
+        if self.verbose:
+            print("Executing ontap_ssl_enabled")
+
+        if not self.ontap_server:
+            # We cannot connect if we are not provided IPAddr, user, password
+            return
+
+        out = self.ontap_server.invoke("volume-get-iter")
+
+        if out.results_status == "failed":
+            # do not attempt to parse results if request failed
+            reason = out.results_reason()
+            raise OVALDriverError("ONTAP driver error " + reason)
+
+        # Variables which hold our return status
+        allVolsEncrypted = True
+        conflictingVolsList = []
+
+        attr_list = out.child_get("attributes-list")
+        # since there may be more than one child (volume), we
+        # collectively request all of them
+        vol_attr = attr_list.children_get()
+
+        for vol in vol_attr:
+            # Iterate over each volume
+            isEncrypted = vol.child_get_string("encrypt")
+            vol_id_attr = vol.child_get("volume-id-attributes")
+            vol_name = vol_id_attr.child_get_string("name").encode("latin-1")
+
+            if isEncrypted == "false":
+                # We have found a bad egg
+                allVolsEncrypted &= False
+                conflictingVolsList.append(vol_name)
+
+        # return the results in the form (message, passed) to OVALResponse
+        if allVolsEncrypted:
+            return ("All volumes properly encrypted", True)
+        else:
+            return ("The following volumes are not encrypted:\t" + str(conflictingVolsList), False)
 
 ########################################################
 #                      TESTING                         #
