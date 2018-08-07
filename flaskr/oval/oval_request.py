@@ -126,37 +126,42 @@ class OVALRequest:
 
 
     def _determine_tests(self):
-        """ helper method to examine the xml tags and evaluate
-            which tests to run"""
+        """ Helper method to examine the xml tags and evaluate
+            which tests to run. Two different suites are checked
+            depending on if the program is run on localhost or
+            remotely """
     
         # list of files we will return
         tests = []
 
         # Get the XMLElements we wish to parse
-        file_state = self._get_all_elems('file_state')
-        textfilecontent = self._get_all_elems('textfilecontent')
         platform = self._get_all_elems('platform')
         description = self._get_all_elems('description')
 
         if self.verbose: 
             print("Checking XML body content against known tests...")
         
-        if file_state and 'id' in file_state[0].properties and 'file_permissions' in file_state[0].properties['id']:
-            if self.local:
+        if self.local:
+            # DEMO PURPOSES ONLY -- run on local host
+            file_state = self._get_all_elems('file_state')
+            textfilecontent = self._get_all_elems('textfilecontent')
+            
+            if file_state and 'id' in file_state[0].properties and 'file_permissions' in file_state[0].properties['id']:
                 tests.append('local_check_file_permissions')
-        if textfilecontent:
-            if self.local:
+            if textfilecontent:
                 tests.append('local_search_for_pattern')
-        if platform[0].content  == 'ONTAP' and 'SSL' in description[0].content and 'enable' in description[0].content:
-            if not self.local:
+    
+    
+        elif platform[0].content == 'ONTAP':
+            # Parsing of actual tests on ONTAP
+            if 'SSL' in description[0].content and 'enable' in description[0].content:
                 tests.append('ontap_ssl_enabled')
-        if platform[0].content == 'ONTAP' and 'encrypt' in description[0].content and 'volume' in description[0].content:
-            if not self.local:
+            if 'encrypt' in description[0].content and 'volume' in description[0].content:
                 tests.append('ontap_vols_encrypted')
-        if platform[0].content == 'ONTAP' and 'utosupport' in description[0].content and 'disable' in description[0].content:
-            if not self.local:
+            if 'utosupport' in description[0].content and 'disable' in description[0].content:
                 tests.append('ontap_autosupport_disabled')
-
+            if 'assword' in description[0].content and 'authentication' in description[0].content:
+                tests.append('ontap_password_authentication')
 
         return tests
 

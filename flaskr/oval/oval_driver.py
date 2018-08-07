@@ -79,7 +79,8 @@ class OVALDriver:
             'local_search_for_pattern' : self._local_search_for_pattern,
             'ontap_ssl_enabled' : self._ontap_ssl_enabled,
             'ontap_vols_encrypted' : self._ontap_vols_encrypted,
-            'ontap_autosupport_disabled' : self._ontap_autosupport_disabled
+            'ontap_autosupport_disabled' : self._ontap_autosupport_disabled,
+            'ontap_password_authentication' : self._ontap_password_authentication
         }
 
 
@@ -365,6 +366,38 @@ class OVALDriver:
         else:
             message = ["The following node still has autosupport enabled: %s" % auto.child_get_string("node-name") for auto in enabled_list]
             return (message, False)
+
+
+    def _ontap_password_authentication(self):
+        """ Assuming an IP address, username, and password are provided
+            to the ONTAP instance, we check that every user has password 
+            verification enabled """
+
+        if self.verbose:
+            print("Executing ontap_ssl_enabled")
+
+        if not self.ontap_server:
+            # We cannot connect if we are not provided IPAddr, user, password
+            return
+
+        out = s.invoke("security-login-get-iter")
+        
+        if out.results_status == "failed":
+            # do not attempt to parse results if request failed
+            reason = out.results_reason()
+            raise OVALDriverError("ONTAP driver error " + reason)
+
+        attr_list = out.child_get("attributes-list")
+        login_acct_info = attr_list.children_get()
+
+        conflicting_users = filter(lambda acct : acct.child_get_string("authentication-method") != "password", login_acct_info)
+        
+        if not conflicting_users:
+            return (["All users have password authentication enabled"], True)
+        else:
+            conflicting_user_names = map(lambda acct : acct.child_get_string("user-name").encode("latin-1"), conflicting_users)
+            return (["The following users do not have password authentication enabled: %s" % str(conflicting_user_names)], False)
+
 
 ########################################################
 #                      TESTING                         #
