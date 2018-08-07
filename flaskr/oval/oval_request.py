@@ -162,7 +162,9 @@ class OVALRequest:
                 tests.append('ontap_autosupport_disabled')
             if 'assword' in description[0].content and 'authentication' in description[0].content:
                 tests.append('ontap_password_authentication')
-
+            if 'assword' in description[0].content and 'requirement' in description[0].content
+                tests.append('ontap_password_policy')
+                
         return tests
 
 
