@@ -120,8 +120,13 @@ class OVALDriver:
             return
         
         path = self.request.get_all_files()[0]
-        my_file = open(path, 'r').read()
- 
+	
+        try:
+            my_file = open(path, 'r').read()
+        except IOError:
+            raise OVALDriverError("Could not read %s - check file permissions" % path)
+
+
         # Check if pattern is a multiline regex
         flags = None
         if raw_pattern[0] is '^' and raw_pattern[-1] is '$':

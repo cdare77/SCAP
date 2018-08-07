@@ -848,3 +848,54 @@ Mon Aug  6 15:21:33 2018	OVAL Parser for /Users/Chris/Documents/Source Code/Pyth
 Mon Aug  6 15:21:33 2018	OVAL Request for /Users/Chris/Documents/Source Code/Python/SCAP/flaskr/uploads/sshd_disable_compression.xml created
 Mon Aug  6 15:21:34 2018	OVAL drivers initialized
 Mon Aug  6 15:21:34 2018	OVAL Result created for Disable Compression Or Set Compression to delayed
+Tue Aug  7 10:04:34 2018	192.168.1.49 successfully connected to 192.168.1.210
+Tue Aug  7 10:04:34 2018	 continuing as ONTAP user admin
+Tue Aug  7 10:04:42 2018	192.168.1.49 successfully uploaded ontap_disable_autosupport.xml
+Tue Aug  7 10:04:42 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_disable_autosupport.xml initialized
+Tue Aug  7 10:04:42 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_disable_autosupport.xml created
+Tue Aug  7 10:04:45 2018	OVAL drivers initialized
+Tue Aug  7 10:04:45 2018	OVAL Result created for Disable Autosupport in ONTAP
+Tue Aug  7 10:05:20 2018	192.168.1.49 successfully uploaded ontap_disable_autosupport.xml
+Tue Aug  7 10:05:20 2018	192.168.1.49 successfully uploaded ontap_enable_ssl.xml
+Tue Aug  7 10:05:20 2018	192.168.1.49 successfully uploaded ontap_volumes_encrypted.xml
+Tue Aug  7 10:05:20 2018	Process pool with 4 processes initialized for descriptions
+Tue Aug  7 10:05:20 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_disable_autosupport.xml initialized
+Tue Aug  7 10:05:20 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml initialized
+Tue Aug  7 10:05:20 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_disable_autosupport.xml created
+Tue Aug  7 10:05:20 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_enable_ssl.xml initialized
+Tue Aug  7 10:05:20 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_volumes_encrypted.xml created
+Tue Aug  7 10:05:20 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/ontap_enable_ssl.xml created
+Tue Aug  7 10:05:23 2018	OVAL drivers initialized
+Tue Aug  7 10:05:23 2018	OVAL Result created for Disable Autosupport in ONTAP
+Tue Aug  7 10:05:23 2018	OVAL Result created for Enable SSL in ONTAP
+Tue Aug  7 10:05:24 2018	OVAL Result created for Encrypt Volumes in ONTAP
+Tue Aug  7 10:06:13 2018	Failed login request from 192.168.1.49
+Tue Aug  7 10:08:02 2018	 continuing as localhost
+Tue Aug  7 10:08:24 2018	192.168.1.49 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Aug  7 10:08:24 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Aug  7 10:08:24 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Aug  7 10:08:25 2018	OVAL drivers initialized
+Tue Aug  7 10:08:25 2018	OVAL Result created for SSH Server Private Key Permissions
+Tue Aug  7 10:08:36 2018	192.168.1.49 successfully uploaded sshd_disable_compression.xml
+Tue Aug  7 10:08:36 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Aug  7 10:08:36 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Aug  7 10:08:37 2018	OVAL drivers initialized
+Tue Aug  7 10:15:57 2018	 continuing as localhost
+Tue Aug  7 10:16:05 2018	192.168.1.49 successfully uploaded sshd_disable_compression.xml
+Tue Aug  7 10:16:05 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Aug  7 10:16:05 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Aug  7 10:16:06 2018	OVAL drivers initialized
+Tue Aug  7 10:18:02 2018	 continuing as localhost
+Tue Aug  7 10:18:06 2018	192.168.1.49 successfully uploaded sshd_disable_compression.xml
+Tue Aug  7 10:18:06 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Aug  7 10:18:06 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Aug  7 10:18:07 2018	OVAL drivers initialized
+Tue Aug  7 10:18:41 2018	 continuing as localhost
+Tue Aug  7 10:18:48 2018	192.168.1.49 successfully uploaded file_permissions_sshd_private_key.xml
+Tue Aug  7 10:18:48 2018	192.168.1.49 successfully uploaded sshd_disable_compression.xml
+Tue Aug  7 10:18:48 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/file_permissions_sshd_private_key.xml initialized
+Tue Aug  7 10:18:48 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/file_permissions_sshd_private_key.xml created
+Tue Aug  7 10:18:48 2018	OVAL Parser for /home/cdare/code/SCAPforONTAP/flaskr/uploads/sshd_disable_compression.xml initialized
+Tue Aug  7 10:18:48 2018	OVAL Request for /home/cdare/code/SCAPforONTAP/flaskr/uploads/sshd_disable_compression.xml created
+Tue Aug  7 10:18:49 2018	OVAL drivers initialized
+Tue Aug  7 10:18:49 2018	OVAL Result created for SSH Server Private Key Permissions

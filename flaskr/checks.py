@@ -118,11 +118,14 @@ def results_overview():
 def _get_result(driver):
     """ Wrapper function for multiprocessing.Pool.map() function. Creates
         an OVALResult for each test"""
-    
-    result = oval.OVALResult(driver.request.title, driver.execute_tests())
-    current_app.logger.info(time.ctime() + "\tOVAL Result created for %s" % result.title)
+    try: 
+    	result = oval.OVALResult(driver.request.title, driver.execute_tests())
+    	current_app.logger.info(time.ctime() + "\tOVAL Result created for %s" % result.title)
 
-    return result
+    	return result
+    except oval.OVALDriverError as e:
+	flash(str(e))
+
 
 
 def _get_description(filename):
