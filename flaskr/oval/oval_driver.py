@@ -466,43 +466,43 @@ class OVALDriver:
         # check delay after failed login
         no_delay_users = filter(lambda acct : acct.child_get_string("delay-after-failed-login") == "0", role_config_info)
         if no_delay_users:
-            conflicting_users = map(lambda acct : acct.child_get_string("user-name").encode("latin-1"), no_delay_users)
+            conflicting_users = map(lambda acct : acct.child_get_string("role-name").encode("latin-1"), no_delay_users)
             messages.append("The following accounts do not have a delay after failed login set: %s" % str(conflicting_users))
 
         # check whether accounts disallow previous passwords
         no_last_passwd_count = filter(lambda acct : acct.child_get_string("last-passwords-disallowed-count") == "0", role_config_info)
         if no_last_passwd_count:
-            conflicting_users = map(lambda acct : acct.child_get_string("user-name").encode("latin-1"), no_last_passwd_count)
+            conflicting_users = map(lambda acct : acct.child_get_string("role-name").encode("latin-1"), no_last_passwd_count)
             messages.append("The following accounts do not disallow previous passwords: %s" % str(conflicting_users))
 
         # check whether accounts require password to be updated
         no_change_passwd = filter(lambda acct : acct.child_get_string("change-password-duration-in-days") == "0", role_config_info)
         if no_change_passwd:
-            conflicting_users = map(lambda acct : acct.child_get_string("user-name").encode("latin-1"), no_change_passwd)
+            conflicting_users = map(lambda acct : acct.child_get_string("role-name").encode("latin-1"), no_change_passwd)
             messages.append("The following accounts do not require passwords to be updated: %s" % str(conflicting_users))
 
         # check for a limit on the number of failed login attempts
         no_max_failed_attempts = filter(lambda acct : acct.child_get_string("max-failed-login-attempts") == "0", role_config_info)
         if no_max_failed_attempts:
-            conflicting_users = map(lambda acct : acct.child_get_string("user-name").encode("latin-1"), no_max_failed_attempts)
+            conflicting_users = map(lambda acct : acct.child_get_string("role-name").encode("latin-1"), no_max_failed_attempts)
             messages.append("The following accounts do not limit the failed login attempts: %s" % str(conflicting_users))
 
         # check to make sure special characters are required in password
         no_passwd_special = filter(lambda acct : acct.child_get_string("min-passwd-specialchar") == "0", role_config_info)
         if no_passwd_special:
-            conflicting_users = map(lambda acct : acct.child_get_string("user-name").encode("latin-1"), no_passwd_special)
+            conflicting_users = map(lambda acct : acct.child_get_string("role-name").encode("latin-1"), no_passwd_special)
             messages.append("The following accounts do not require special characters in a password: %s" % str(conflicting_users))
 
         # check to make sure digits are required in password
         no_passwd_digits = filter(lambda acct : acct.child_get_string("passwd-min-digits") == "0", role_config_info)
         if no_passwd_digits:
-            conflicting_users = map(lambda acct : acct.child_get_string("user-name").encode("latin-1"), no_passwd_digits)
+            conflicting_users = map(lambda acct : acct.child_get_string("role-name").encode("latin-1"), no_passwd_digits)
             messages.append("The following accounts do not require digits in a password: %s" % str(conflicting_users))
 
         # check to make sure that uppercase characters are required in password
         no_passwd_uppercase = filter(lambda acct : acct.child_get_string("passwd-min-uppercase-chars") == "0", role_config_info)
         if no_passwd_uppercase:
-            conflicting_users = map(lambda acct : acct.child_get_string("user-name").encode("latin-1"), no_passwd_uppercase)
+            conflicting_users = map(lambda acct : acct.child_get_string("role-name").encode("latin-1"), no_passwd_uppercase)
             messages.append("The following accounts do not require uppercase characters in a password: %s" % str(conflicting_users))
 
         if not messages:
