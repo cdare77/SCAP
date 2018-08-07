@@ -380,7 +380,7 @@ class OVALDriver:
             # We cannot connect if we are not provided IPAddr, user, password
             return
 
-        out = s.invoke("security-login-get-iter")
+        out = self.ontap_server.invoke("security-login-get-iter")
         
         if out.results_status == "failed":
             # do not attempt to parse results if request failed
