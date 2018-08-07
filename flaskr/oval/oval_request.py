@@ -153,6 +153,10 @@ class OVALRequest:
         if platform[0].content == 'ONTAP' and 'encrypt' in description[0].content and 'volume' in description[0].content:
             if not self.local:
                 tests.append('ontap_vols_encrypted')
+        if platform[0].content == 'ONTAP' and 'utosupport' in description[0].content and 'disable' in description[0].content:
+            if not self.local:
+                tests.append('ontap_autosupport_disabled')
+
 
         return tests
 

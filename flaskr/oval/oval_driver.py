@@ -78,7 +78,8 @@ class OVALDriver:
             'local_check_file_permissions' : self._local_check_file_permissions,
             'local_search_for_pattern' : self._local_search_for_pattern,
             'ontap_ssl_enabled' : self._ontap_ssl_enabled,
-            'ontap_vols_encrypted' : self._ontap_vols_encrypted
+            'ontap_vols_encrypted' : self._ontap_vols_encrypted,
+            'ontap_autosupport_disabled' : self._ontap_autosupport_disabled
         }
 
 
@@ -300,10 +301,9 @@ class OVALDriver:
             reason = out.results_reason()
             raise OVALDriverError("ONTAP driver error " + reason)
 
-        # Variables which hold our return status
-        allVolsEncrypted = True
-        conflictingVolsList = []
-	encryptedVolsList = []
+        # Lists which keep track of each type of volume
+        conflicting_vols_list = []
+	encrypted_vols_list = []
 
         attr_list = out.child_get("attributes-list")
         # since there may be more than one child (volume), we
@@ -312,24 +312,54 @@ class OVALDriver:
 
         for vol in vol_attr:
             # Iterate over each volume
-            isEncrypted = vol.child_get_string("encrypt")
+            is_encrypted = vol.child_get_string("encrypt")
             vol_id_attr = vol.child_get("volume-id-attributes")
             vol_name = vol_id_attr.child_get_string("name").encode("latin-1")
 
-            if isEncrypted == "false":
+            if is_encrypted == "false":
                 # We have found a bad egg
-		if vol_name != "vol0":
-                    allVolsEncrypted &= False
-                conflictingVolsList.append(vol_name)
+                conflicting_vols_list.append(vol_name)
 	    else:
-		encryptedVolsList.append(vol_name)
+		encrypted_vols_list.append(vol_name)
 
 
         # return the results in the form (message, passed) to OVALResponse
-        if allVolsEncrypted:
+        if not conflicting_vols_list:
             return (["All volumes properly encrypted"], True)
         else:
-            return (["The following volumes are encrypted:\t" + str(encryptedVolsList), "The following volumes are not encrypted:\t" + str(conflictingVolsList)], False)
+            return (["The following volumes are encrypted:\t" + str(encrypted_vols_list), "The following volumes are not encrypted:\t" + str(conflicting_vols_list)], False)
+
+    
+    def _ontap_autosupport_disabled(self):
+        """ Assuming an IP address, username, and password are provided
+            to the ONTAP instance, we check every node to make sure
+            that autosupport is turned off """
+
+        if self.verbose:
+            print("Executing ontap_ssl_enabled")
+
+        if not self.ontap_server:
+            # We cannot connect if we are not provided IPAddr, user, password
+            return
+
+        out = self.ontap_server.invoke("autosupport-config-get-iter")
+
+        if out.results_status == "failed":
+            # do not attempt to parse results if request failed
+            reason = out.results_reason()
+            raise OVALDriverError("ONTAP driver error " + reason)
+
+        attr_list = out.child_get("attributes-list")
+        auto_supp_config_info = attr_list.children_get()
+        
+        # If there are any nodes with autosupport enabled, we fail the test 
+        enabled_list = filter(lambda auto : auto.child_get_string("is-enabled") == "true", auto_supp_config_info)
+
+        if not enabled_list:
+            return (["All nodes have autosupport disabled"], True)
+        else:
+            message = ["The following node still has autosupport enabled: %s" % auto.child_get_string("node-name") for auto in enabled_list]
+            return (message, False)
 
 ########################################################
 #                      TESTING                         #

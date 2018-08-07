@@ -1,0 +1,16 @@
+<def-group oval_version="5.11">
+  <definition class="compliance" id="dovecot_enable_ssl" version="1">
+    <metadata>
+      <title>Disable Autosupport in ONTAP</title>
+      <affected family="unix">
+        <platform>ONTAP</platform>
+      </affected>
+      <description>Autosupport capabilities should be disabled.</description>
+    </metadata>
+    <criteria comment="Disable Autosupport in ONTAP" operator="OR">
+      <extend_definition comment="ONTAP service is disabled" definition_ref="service_ontap_disabled" />
+      <criterion test_ref="test_ontap_autosupport_disable" />
+    </criteria>
+  </definition>
+</def-group>
+
