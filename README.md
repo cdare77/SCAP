@@ -47,6 +47,7 @@ timestamp message
 - `checks.py` violates good programming practice of not running any back-end code in the handling of a GET request. GET requests are simple, and should merely render a provide a file - heavy backend work should be prompted by a POST request. This was difficult for me to get around, however, since I wanted the program's timing to be based off user input (clicking a button). 
 
 ## 5. Future Plans
-- Find efficient way to transport data between Python scripts besides setting cookies in session[] or g.
+- Find efficient way to transport data between Python scripts besides setting cookies in session\[\] or g.
 - Providing an entire SCAP directory at the upload stage complete with XCCDF schemas, CPE files, on top of the current OVAL files.
+- ROut CVSS files in addition to results in UI
 - SCAP.exe for Windows users (i.e. Windows compatability)
