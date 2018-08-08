@@ -49,5 +49,5 @@ timestamp message
 ## 5. Future Plans
 - Find efficient way to transport data between Python scripts besides setting cookies in session\[\] or g.
 - Providing an entire SCAP directory at the upload stage complete with XCCDF schemas, CPE files, on top of the current OVAL files.
-- ROut CVSS files in addition to results in UI
+- Output CVSS files in addition to results in UI
 - SCAP.exe for Windows users (i.e. Windows compatability)
