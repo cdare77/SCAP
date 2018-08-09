@@ -5,7 +5,6 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 import time, socket, ssl
-from flaskr.db import get_db
 
 
 ########################################################
