@@ -1,4 +1,3 @@
-from NetApp import *
 import AES
 from flask import (
     Blueprint, flash, g, session, redirect, render_template, request, url_for, current_app
@@ -45,8 +44,12 @@ def index():
         # handle input
         if endnode == 'localhost':
             return proceed_localhost()
+        elif endnode == "ontap_9_3":
+            # ONTAP 9.3
+            return proceed_ontap("9.3")
         else:
-            return proceed_ontap()
+            # ONTAP 9.4
+            return proceed_ontap("9.4")
     
     # GET
     return render_template('home/index.html')
@@ -75,7 +78,7 @@ def proceed_localhost():
 
 
 
-def proceed_ontap():
+def proceed_ontap(version):
     """ Method which handles our use case of running checks
         on a remote ONTAP instance. This requires two stages
         of gathering user input data and checking the validity
@@ -98,10 +101,12 @@ def proceed_ontap():
     if not password:
         error = 'Password is required.'
 
+
     # Attempt to check if login works
-    if not test_login_credentials(IPAddr, user, password):
+    if not test_login_credentials(IPAddr, user, password, version):
         error = 'Invalid login info.'
         current_app.logger.info(time.ctime() + '\tFailed login request from {}'.format(socket.gethostbyname(socket.getfqdn())))
+
 
     if error is not None:
         # display any errors on the user side
@@ -111,6 +116,7 @@ def proceed_ontap():
         session.clear()
         session['user'] = user
         session['IPAddr'] = IPAddr
+        session['version'] = version
 
         # All sensitive data in the session must be encrypted
         AESKey = [ord(elem) for elem in current_app.config['SECRET_KEY']]
@@ -126,7 +132,7 @@ def proceed_ontap():
         return redirect(url_for('upload.upload'))
 
 
-def test_login_credentials(IPAddr, user, password):
+def test_login_credentials(IPAddr, user, password, version):
     """ Tests the login credentials against a NetApp ONTAP instance by
         invoking a small request and checking if the output returns an error.
         
@@ -136,7 +142,15 @@ def test_login_credentials(IPAddr, user, password):
             So I was willing to sacrifice a few thousand clock cycles."""
 
     # Create a server at our specified address
-    s = NaServer(IPAddr, 1 , 140)
+    s = None
+    # version control
+    if version == "9.3":
+        from NetApp_9_3 import *
+        s = NaServer(IPAddr, 1 , 130)
+    else:
+        from NetApp_9_4 import *
+        s = NaServer(IPAddr, 1 , 140)
+
     s.set_server_type("FILER")
     
     # check if HTTPS can be set up properly
@@ -159,6 +173,6 @@ def test_login_credentials(IPAddr, user, password):
 
     if output.results_errno() != 0:
         return False
-    else :
+    else:
 	return True
 

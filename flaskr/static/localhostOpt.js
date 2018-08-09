@@ -1,7 +1,7 @@
 $('#endnode').on('change',function() {
     var isSelected = $(this).val();
 
-    if (isSelected == "ontap") {
+    if (isSelected == "ontap_9_3" || isSelected == "ontap_9_4") {
         $("#IPAddr").show();
         $("#IPAddrlabel").show();
         $("#IPAddr").attr("required", "");

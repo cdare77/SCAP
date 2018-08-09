@@ -57,8 +57,9 @@ def description():
             password = myAES.decrypt(g.password)
         
         user = g.user
+        ontap_version = g.version
         
-        _drivers = [oval.OVALDriver( ovalrequest, IPAddr=IPAddr, user=user, password=password, verbose=False ) for ovalrequest in _requests]
+        _drivers = [oval.OVALDriver( ovalrequest, IPAddr=IPAddr, user=user, password=password, verbose=False, version=ontap_version ) for ovalrequest in _requests]
         current_app.logger.info(time.ctime() + "\tOVAL drivers initialized")
         
         # we have handled the requests so we no longer need them
@@ -282,3 +283,13 @@ def _load_local():
         g.local = None
     else:
         g.local = local
+
+@bp.before_app_request
+def _load_version():
+    """ Loads ONTAP version data from the cookie to local request storage"""
+    version = session.get('version')
+
+    if version is None:
+        g.version = None
+    else:
+        g.version = version

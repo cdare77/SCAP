@@ -7,8 +7,6 @@ import sys, stat, os, re, ssl
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from NetApp import (NaServer, NaElement)
-
 from oval_request import OVALRequest
 from oval_parser import OVALParser, XMLElement
 
@@ -43,7 +41,7 @@ class OVALDriverError(Exception):
 
 class OVALDriver:
 
-    def __init__(self, request, IPAddr = None, user = None, password=None, verbose=False):
+    def __init__(self, request, IPAddr = None, user = None, password=None, verbose=False, version=None):
         """ Constructor for driver - iteratively executes all tests found in
             a single file """
     
@@ -54,11 +52,22 @@ class OVALDriver:
         self.password = password
         
         self.verbose = verbose
+        # ONTAP version
+        self.version = version
         
         self.ontap_server = None
         
         if self.IPAddr and self.user and self.password:
-            s = NaServer(self.IPAddr, 1, 140)
+            # ONTAP server
+            s = None
+            # Version control
+            if self.version == "9.4":
+                from NetApp_9_4 import (NaServer, NaElement)
+                s = NaServer(self.IPAddr, 1, 140)
+            else:
+                from NetApp_9_3 import (NaServer, NaElement)
+                s = NaServer(self.IPAddr, 1, 130)
+                
             s.set_server_type("FILER")
             s.set_transport_type("HTTPS")
             s.set_port(443)
@@ -241,29 +250,8 @@ class OVALDriver:
             # We cannot connect if we are not provided IPAddr, user, password
             return
 
-        # construct ZAPI request
-        api = NaElement("security-ssl-get-iter")
-        xi = NaElement("desired-attributes")
-        api.child_add(xi)
-
-        xi1 = NaElement("vserver-ssl-info")
-        xi.child_add(xi1)
-
-        xi1.child_add_string("client-authentication-enabled", "<client-authentication-enabled>")
-        xi1.child_add_string("server-authentication-enabled", "<server-authentication-enabled>")
-        api.child_add_string("max-records", "2")
-
-        xi2 = NaElement("query")
-        api.child_add(xi2)
-
-        xi3 = NaElement("vserver-ssl-info")
-        xi2.child_add(xi3)
-
-        xi3.child_add_string("certificate-authority", "*")
-        api.child_add_string("tag", "")
-
         # send the ZAPI request to the ONTAP node
-        out = self.ontap_server.invoke_elem(api)
+        out = self.ontap_server.invoke("security-ssl-get-iter")
 
         if out.results_status() == "failed": 
             # do not attempt to parse results if the request failed
