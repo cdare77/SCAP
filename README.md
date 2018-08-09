@@ -1,7 +1,7 @@
 # SCAP for ONTAP
 
 ## 1. Overview
-The SCAP for ONTAP project is a server-based application written in Python to check <html>*NIX</html> or NetApp ONTAP<html>&copy;</html>  systems. SCAP for ONTAP checks the state of the specified machine for Security Content Automation Protocol (SCAP) compatibility, which is often required for FISMA compliance. After successful connection, the user is able to upload OVAL files which are later rendered and executed. For ease of usability, the application is executed on a Flask server so that all user interaction can be done via a web browser. Certain Python scripts can be run independently from the command line (for testing purposes) - such scripts can distinguish by  
+The SCAP for ONTAP project is a server-based application written in Python to check <html>*NIX</html> or NetApp ONTAP<html>&copy;</html>  systems. SCAP for ONTAP checks the state of the specified machine for Security Content Automation Protocol (SCAP) compatibility, which is often required for FISMA compliance. After successful connection, the user is able to upload OVAL files which are later rendered and executed. For ease of usability, the application is executed on a Flask server so that all user interaction can be done via a web browser. Certain Python scripts can be run independently from the command line (for testing purposes) - such scripts can distinguish by a
 ```
 if __name__ == "__main__":
 ```
@@ -47,6 +47,7 @@ timestamp message
 - `checks.py` violates good programming practice of not running any back-end code in the handling of a GET request. GET requests are simple, and should merely render a provide a file - heavy backend work should be prompted by a POST request. This was difficult for me to get around, however, since I wanted the program's timing to be based off user input (clicking a button). 
 
 ## 5. Future Plans
-- Find efficient way to transport data between Python scripts besides setting cookies in session[] or g.
+- Find efficient way to transport data between Python scripts besides setting cookies in session\[\] or g.
 - Providing an entire SCAP directory at the upload stage complete with XCCDF schemas, CPE files, on top of the current OVAL files.
+- Output CVSS files in addition to results in UI
 - SCAP.exe for Windows users (i.e. Windows compatability)
